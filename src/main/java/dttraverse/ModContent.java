@@ -106,11 +106,6 @@ public class ModContent {
             public int getLightRequirement() {
                 return 1;
             }
-
-            @Override
-            public int foliageColorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos) {
-                return 0xffffff;
-            }
         };
         return leavesProperties;
     }
@@ -156,10 +151,6 @@ public class ModContent {
             ModelHelper.regModel(tree.getCommonSpecies().getSeed());
             ModelHelper.regModel(tree);
         }
-        ModelHelper.regModel(TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_yellow")).getSeed());
-        ModelHelper.regModel(TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_orange")).getSeed());
-        ModelHelper.regModel(TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_red")).getSeed());
-        ModelHelper.regModel(TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_brown")).getSeed());
 
         LeavesPaging.getLeavesMapForModId(DynamicTreesTraverse.MODID).forEach((key,leaves) -> ModelLoader.setCustomStateMapper(leaves, new StateMap.Builder().ignore(BlockLeaves.DECAYABLE).build()));
     }
