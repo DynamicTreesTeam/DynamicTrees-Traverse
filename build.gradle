@@ -11,7 +11,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "1.2"
+version = "1.4"
 group = "orex.dttraverse" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "dttraverse"
 
@@ -21,7 +21,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.4.2705"
+    version = "1.12.2-14.23.5.2768"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
@@ -38,6 +38,9 @@ dependencies {
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
     //compile "some.group:artifact:version"
+
+    compile files('libs/DynamicTrees-1.12.2-0.9.10.jar');
+    compile files('libs/Traverse-1.12.2-1.6.0-69.jar');
       
     // real examples
     //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env

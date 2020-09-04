@@ -35,7 +35,7 @@ public class TreeFir extends TreeFamily {
 
             setBasicGrowingParameters(0.3f, 16.0f, 3, 3, 0.9f);
 
-            setDynamicSapling(new BlockDynamicSapling("firsapling").getDefaultState());
+            // setDynamicSapling(new BlockDynamicSapling("firsapling").getDefaultState());
 
             envFactor(BiomeDictionary.Type.HOT, 0.50f);
             envFactor(BiomeDictionary.Type.DRY, 0.25f);
@@ -89,13 +89,14 @@ public class TreeFir extends TreeFamily {
         }
 
         @Override
-        public void postGeneration(World world, BlockPos rootPos, Biome biome, int radius, List<BlockPos> endPoints, SafeChunkBounds safeBounds) {
+        public void postGeneration(World world, BlockPos rootPos, Biome biome, int radius, List<BlockPos> endPoints, SafeChunkBounds safeBounds, IBlockState initialDirtState) {
             //Manually place the highest few blocks of the conifer since the leafCluster voxmap won't handle it
             BlockPos highest = Collections.max(endPoints, (a, b) -> a.getY() - b.getY());
             world.setBlockState(highest.up(1), leavesProperties.getDynamicLeavesState(4));
             world.setBlockState(highest.up(2), leavesProperties.getDynamicLeavesState(3));
             world.setBlockState(highest.up(3), leavesProperties.getDynamicLeavesState(1));
         }
+
     }
 
     public TreeFir() {
@@ -126,12 +127,6 @@ public class TreeFir extends TreeFamily {
             }
         }
         return radius;
-    }
-
-    @Override
-    public List<Block> getRegisterableBlocks(List<Block> blockList) {
-        blockList.add(getCommonSpecies().getDynamicSapling().getBlock());
-        return super.getRegisterableBlocks(blockList);
     }
 
 }

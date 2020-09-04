@@ -2,7 +2,7 @@ package dttraverse.trees;
 
 import com.ferreusveritas.dynamictrees.ModBlocks;
 import com.ferreusveritas.dynamictrees.api.TreeHelper;
-import com.ferreusveritas.dynamictrees.blocks.BlockDynamicSaplingRare;
+import com.ferreusveritas.dynamictrees.trees.Species;
 import com.ferreusveritas.dynamictrees.trees.SpeciesRare;
 import com.ferreusveritas.dynamictrees.trees.TreeFamily;
 import dttraverse.DynamicTreesTraverse;
@@ -18,14 +18,14 @@ import prospector.traverse.world.TraverseWorld;
 
 import java.util.Random;
 
-public class SpeciesAutumnOrange extends SpeciesRare {
+public class SpeciesAutumnOrange extends Species {
 
     public SpeciesAutumnOrange(TreeFamily treeFamily) {
         super(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_orange"), treeFamily, ModContent.autumnOrangeLeavesProperties);
 
         setBasicGrowingParameters(0.3f, 12.0f, upProbability, lowestBranchHeight, 0.8f);
 
-        setDynamicSapling(new BlockDynamicSaplingRare("autumn_orangesapling").getDefaultState());
+        // setDynamicSapling(new BlockDynamicSaplingRare("autumn_orangesapling").getDefaultState());
 
         envFactor(BiomeDictionary.Type.HOT, 0.50f);
         envFactor(BiomeDictionary.Type.DRY, 0.50f);
@@ -44,8 +44,8 @@ public class SpeciesAutumnOrange extends SpeciesRare {
     }
 
     @Override
-    public boolean rot(World world, BlockPos pos, int neighborCount, int radius, Random random) {
-        if(super.rot(world, pos, neighborCount, radius, random)) {
+    public boolean rot (World world, BlockPos pos, int neighborCount, int radius, Random random, boolean rapid) {
+        if (super.rot(world, pos, neighborCount, radius, random, rapid)) {
             if(radius > 4 && TreeHelper.isRooty(world.getBlockState(pos.down())) && world.getLightFor(EnumSkyBlock.SKY, pos) < 4) {
                 world.setBlockState(pos, random.nextInt(3) == 0 ? ModBlocks.blockStates.redMushroom : ModBlocks.blockStates.brownMushroom);//Change branch to a mushroom
                 world.setBlockState(pos.down(), ModBlocks.blockStates.podzol);//Change rooty dirt to Podzol

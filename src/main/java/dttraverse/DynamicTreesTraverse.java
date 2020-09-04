@@ -1,5 +1,6 @@
 package dttraverse;
 
+import com.ferreusveritas.dynamictrees.ModConstants;
 import com.ferreusveritas.dynamictrees.api.WorldGenRegistry;
 import com.ferreusveritas.dynamictrees.worldgen.TreeGenerator;
 import dttraverse.proxy.CommonProxy;
@@ -17,8 +18,8 @@ public class DynamicTreesTraverse {
 
     public static final String MODID = "dttraverse";
     public static final String NAME = "Dynamic Trees Traverse";
-    public static final String VERSION = "@VERSION@";
-    public static final String DEPENDENCIES = "required-after:dynamictrees@[1.12.2-0.7.7e,);required-after:traverse";
+    public static final String VERSION = "1.5";
+    public static final String DEPENDENCIES = ModConstants.REQAFTER + ModConstants.DYNAMICTREES_LATEST + ModConstants.NEXT + ModConstants.REQAFTER + "traverse";
 
     @Mod.Instance
     public static DynamicTreesTraverse instance;
@@ -35,10 +36,6 @@ public class DynamicTreesTraverse {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        if (WorldGenRegistry.isWorldGenEnabled()) {
-            new BiomeDataBasePopulator(TreeGenerator.getTreeGenerator().biomeDataBase).populate();
-        }
-
         proxy.init();
     }
 
