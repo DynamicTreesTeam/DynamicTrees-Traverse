@@ -23,14 +23,13 @@ public class SpeciesAutumnYellow extends Species {
 
         setBasicGrowingParameters(0.1f, 14.0f, 4, 4, 1.25f);
 
-        // setDynamicSapling(new BlockDynamicSaplingRare("autumn_yellowsapling").getDefaultState());
+        setRequiresTileEntity(true);
 
         envFactor(BiomeDictionary.Type.HOT, 0.50f);
         envFactor(BiomeDictionary.Type.DRY, 0.50f);
         envFactor(BiomeDictionary.Type.FOREST, 1.05f);
 
         generateSeed();
-
         setupStandardSeedDropping();
 
         leavesProperties.setTree(treeFamily);

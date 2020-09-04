@@ -25,7 +25,7 @@ public class SpeciesAutumnRed extends Species {
 
         setBasicGrowingParameters(0.15f, 14.0f, 4, 4, 1.05f);
 
-        // setDynamicSapling(new BlockDynamicSaplingRare("autumn_redsapling").getDefaultState());
+        setRequiresTileEntity(true);
 
         envFactor(BiomeDictionary.Type.HOT, 0.50f);
         envFactor(BiomeDictionary.Type.DRY, 0.50f);

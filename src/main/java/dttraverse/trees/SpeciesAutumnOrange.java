@@ -25,14 +25,13 @@ public class SpeciesAutumnOrange extends Species {
 
         setBasicGrowingParameters(0.3f, 12.0f, upProbability, lowestBranchHeight, 0.8f);
 
-        // setDynamicSapling(new BlockDynamicSaplingRare("autumn_orangesapling").getDefaultState());
+        setRequiresTileEntity(true);
 
         envFactor(BiomeDictionary.Type.HOT, 0.50f);
         envFactor(BiomeDictionary.Type.DRY, 0.50f);
         envFactor(BiomeDictionary.Type.FOREST, 1.05f);
 
         generateSeed();
-
         setupStandardSeedDropping();
 
         leavesProperties.setTree(treeFamily);

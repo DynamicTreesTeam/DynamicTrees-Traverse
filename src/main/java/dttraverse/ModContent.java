@@ -59,83 +59,11 @@ public class ModContent {
         TreeFamily oakTree = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "oak")).getFamily();
         TreeFamily birchTree = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "birch")).getFamily();
 
-        Block firLeaves = TraverseBlocks.blocks.get("fir_leaves");
-        Item firLeavesItem = new ItemBlock(firLeaves);
-        firLeavesItem.setRegistryName(firLeaves.getRegistryName());
-        GameRegistry.findRegistry(Item.class).register(firLeavesItem);
-        firLeavesProperties = new LeavesProperties(
-                firLeaves.getDefaultState(),
-                new ItemStack(firLeavesItem,1, 0),
-                TreeRegistry.findCellKit("conifer")){
-            @Override
-            public int getSmotherLeavesMax() {
-                return 5;
-            }
-            @Override
-            public int foliageColorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos) {
-                return 0xffffff;
-            }
-        };
-
-        Block autumnYellowLeaves = TraverseBlocks.blocks.get("yellow_autumnal_leaves");
-        Item autumnYellowLeavesItem = new ItemBlock(autumnYellowLeaves);
-        autumnYellowLeavesItem.setRegistryName(autumnYellowLeaves.getRegistryName());
-        GameRegistry.findRegistry(Item.class).register(autumnYellowLeavesItem);
-        autumnYellowLeavesProperties = new LeavesProperties(
-                autumnYellowLeaves.getDefaultState(),
-                new ItemStack(autumnYellowLeavesItem, 1),
-                TreeRegistry.findCellKit("deciduous")) {
-            @Override
-            public int foliageColorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos) {
-                return 0xffffff;
-            }
-        };
-
-        Block autumnOrangeLeaves = TraverseBlocks.blocks.get("orange_autumnal_leaves");
-        Item autumnOrangeLeavesItem = new ItemBlock(autumnOrangeLeaves);
-        autumnOrangeLeavesItem.setRegistryName(autumnOrangeLeaves.getRegistryName());
-        GameRegistry.findRegistry(Item.class).register(autumnOrangeLeavesItem);
-        autumnOrangeLeavesProperties = new LeavesProperties(
-                autumnOrangeLeaves.getDefaultState(),
-                new ItemStack(autumnOrangeLeavesItem, 1),
-                TreeRegistry.findCellKit("deciduous")) {
-            @Override
-            public int foliageColorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos) {
-                return 0xffffff;
-            }
-        };
-
-        Block autumnRedLeaves = TraverseBlocks.blocks.get("red_autumnal_leaves");
-        Item autumnRedLeavesLeavesItem = new ItemBlock(autumnRedLeaves);
-        autumnRedLeavesLeavesItem.setRegistryName(autumnRedLeaves.getRegistryName());
-        GameRegistry.findRegistry(Item.class).register(autumnRedLeavesLeavesItem);
-        autumnRedLeavesProperties = new LeavesProperties(
-                autumnRedLeaves.getDefaultState(),
-                new ItemStack(autumnRedLeavesLeavesItem, 1),
-                TreeRegistry.findCellKit("deciduous")) {
-            @Override
-            public int foliageColorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos) {
-                return 0xffffff;
-            }
-        };
-
-        Block autumnBrownLeaves = TraverseBlocks.blocks.get("brown_autumnal_leaves");
-        Item autumnBrownLeavesLeavesItem = new ItemBlock(autumnBrownLeaves);
-        autumnBrownLeavesLeavesItem.setRegistryName(autumnBrownLeaves.getRegistryName());
-        GameRegistry.findRegistry(Item.class).register(autumnBrownLeavesLeavesItem);
-        autumnBrownLeavesProperties = new LeavesProperties(
-                autumnBrownLeaves.getDefaultState(),
-                new ItemStack(autumnBrownLeavesLeavesItem,1),
-                TreeRegistry.findCellKit("deciduous")) {
-            @Override
-            public int getSmotherLeavesMax() {
-                return 1;
-            }
-            @Override
-            public int foliageColorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos) {
-                return 0xffffff;
-            }
-        };
+        firLeavesProperties = setUpLeaves(TraverseBlocks.blocks.get("fir_leaves"), "conifer", 5);
+        autumnBrownLeavesProperties = setUpLeaves(TraverseBlocks.blocks.get("brown_autumnal_leaves"), "deciduous", 1);
+        autumnOrangeLeavesProperties = setUpLeaves(TraverseBlocks.blocks.get("orange_autumnal_leaves"), "deciduous", 4);
+        autumnRedLeavesProperties = setUpLeaves(TraverseBlocks.blocks.get("red_autumnal_leaves"), "deciduous", 4);
+        autumnYellowLeavesProperties = setUpLeaves(TraverseBlocks.blocks.get("yellow_autumnal_leaves"), "deciduous", 4);
 
         LeavesPaging.getLeavesBlockForSequence(DynamicTreesTraverse.MODID, 0, firLeavesProperties);
         LeavesPaging.getLeavesBlockForSequence(DynamicTreesTraverse.MODID, 4, autumnYellowLeavesProperties);
@@ -152,17 +80,39 @@ public class ModContent {
         Collections.addAll(trees, firTree);
         trees.forEach(tree -> tree.registerSpecies(Species.REGISTRY));
 
-        /*registry.registerAll(
-                TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_yellow")).getDynamicSapling().getBlock(),
-                TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_orange")).getDynamicSapling().getBlock(),
-                TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_red")).getDynamicSapling().getBlock(),
-                TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_brown")).getDynamicSapling().getBlock()
-        );*/
-
         ArrayList<Block> treeBlocks = new ArrayList<>();
         trees.forEach(tree -> tree.getRegisterableBlocks(treeBlocks));
         treeBlocks.addAll(LeavesPaging.getLeavesMapForModId(DynamicTreesTraverse.MODID).values());
         registry.registerAll(treeBlocks.toArray(new Block[treeBlocks.size()]));
+    }
+
+    public static ILeavesProperties setUpLeaves (Block primitiveLeavesBlock, String cellKit, int smotherLeavesMax) {
+        ILeavesProperties leavesProperties;
+        leavesProperties = new LeavesProperties(
+                primitiveLeavesBlock.getDefaultState(),
+                new ItemStack(primitiveLeavesBlock, 1, 0),
+                TreeRegistry.findCellKit(cellKit)) {
+            @Override
+            public ItemStack getPrimitiveLeavesItemStack() {
+                return new ItemStack(primitiveLeavesBlock, 1, 0);
+            }
+
+            @Override
+            public int getSmotherLeavesMax() {
+                return smotherLeavesMax;
+            }
+
+            @Override
+            public int getLightRequirement() {
+                return 1;
+            }
+
+            @Override
+            public int foliageColorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos) {
+                return 0xffffff;
+            }
+        };
+        return leavesProperties;
     }
 
     @SubscribeEvent

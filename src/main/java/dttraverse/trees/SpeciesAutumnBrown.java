@@ -24,16 +24,14 @@ public class SpeciesAutumnBrown extends Species {
 
         setBasicGrowingParameters(0.3f, 12.0f, upProbability, lowestBranchHeight, 0.65f);
 
-        // setDynamicSapling(new BlockDynamicSaplingRare("autumn_brownsapling").getDefaultState());
+        setRequiresTileEntity(true);
 
         envFactor(BiomeDictionary.Type.LUSH, 0.75f);
         envFactor(BiomeDictionary.Type.SPOOKY, 1.05f);
         envFactor(BiomeDictionary.Type.DEAD, 1.05f);
 
         generateSeed();
-
         setupStandardSeedDropping();
-
 
         leavesProperties.setTree(treeFamily);
     }
