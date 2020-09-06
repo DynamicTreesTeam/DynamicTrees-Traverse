@@ -44,6 +44,7 @@ import java.util.Collections;
 @Mod.EventBusSubscriber(modid = DynamicTreesTraverse.MODID)
 @GameRegistry.ObjectHolder(DynamicTreesTraverse.MODID)
 public class ModContent {
+
     public static ILeavesProperties firLeavesProperties, autumnYellowLeavesProperties, autumnOrangeLeavesProperties, autumnRedLeavesProperties, autumnBrownLeavesProperties;
     public static ArrayList<TreeFamily> trees = new ArrayList<TreeFamily>();
 
@@ -152,6 +153,12 @@ public class ModContent {
             ModelHelper.regModel(tree);
         }
 
+        ModelHelper.regModel(TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_yellow")).getSeed());
+        ModelHelper.regModel(TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_orange")).getSeed());
+        ModelHelper.regModel(TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_red")).getSeed());
+        ModelHelper.regModel(TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_brown")).getSeed());
+
         LeavesPaging.getLeavesMapForModId(DynamicTreesTraverse.MODID).forEach((key,leaves) -> ModelLoader.setCustomStateMapper(leaves, new StateMap.Builder().ignore(BlockLeaves.DECAYABLE).build()));
     }
+
 }
