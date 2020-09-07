@@ -7,8 +7,8 @@
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["Odorousrex"],
-  "credits": "Mangoose3039 and Ferreusveritas, without their code examples I never would've gotten this far. Prospector for making Traverse, a vanilla style biomes mod.",
+  "authorList": ["Odorousrex, Harley O'Connor"],
+  "credits": "Mangoose3039 and Ferreusveritas, without their code examples I never would've gotten this far. Prospector for making Traverse, a vanilla style biomes mod. Odorousrex for making the original mod.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

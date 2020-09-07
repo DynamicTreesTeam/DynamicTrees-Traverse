@@ -1,12 +1,14 @@
-item.dttraverse:autumn_brownseed.name=Brown Autumn Acorn
-item.dttraverse:autumn_redseed.name=Red Autumn Acorn
-item.dttraverse:autumn_orangeseed.name=Orange Autumn Acorn
-item.dttraverse:autumn_yellowseed.name=Yellow Autumn Catkin
+# Items
+item.dttraverse:autumn_brownseed.name=Brown Autumnal Acorn
+item.dttraverse:autumn_redseed.name=Red Autumnal Acorn
+item.dttraverse:autumn_orangeseed.name=Orange Autumnal Acorn
+item.dttraverse:autumn_yellowseed.name=Yellow Autumnal Catkin
 item.dttraverse:firseed.name=Fir Seed
 
-tile.dttraverse:autumn_brown_leaves.name=Dynamic Brown Leaves
-tile.dttraverse:autumn_red_leaves.name=Dynamic Red Leaves
-tile.dttraverse:autumn_yellow_leaves.name=Dynamic Yellow Leaves
-tile.dttraverse:autumn_orange_leaves.name=Dynamic Orange Leaves
+# Blocks
+tile.dttraverse:autumn_brown_leaves.name=Dynamic Brown Autumnal Leaves
+tile.dttraverse:autumn_red_leaves.name=Dynamic Red Autumnal Leaves
+tile.dttraverse:autumn_yellow_leaves.name=Dynamic Yellow Autumnal Leaves
+tile.dttraverse:autumn_orange_leaves.name=Dynamic Orange Autumnal Leaves
 tile.dttraverse:fir_leaves.name=Dynamic Fir Leaves
 tile.dttraverse:firbranch.name=Dynamic Fir Tree
