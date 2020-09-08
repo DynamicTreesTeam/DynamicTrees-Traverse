@@ -36,7 +36,7 @@ public class TreeFir extends TreeFamily {
         SpeciesFir(TreeFamily treeFamily) {
             super(treeFamily.getName(), treeFamily, ModContent.firLeavesProperties);
 
-            setBasicGrowingParameters(0.3f, 16.0f, 3, 3, 0.9f);
+            setBasicGrowingParameters(0.3f, 26.0f, 7, 6, 0.9f);
 
             setGrowthLogicKit(TreeRegistry.findGrowthLogicKit(ModTrees.CONIFER));
 

@@ -9,6 +9,7 @@ import com.ferreusveritas.dynamictrees.worldgen.BiomeDataBase;
 import dttraverse.DynamicTreesTraverse;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
+import prospector.traverse.init.TraverseBlocks;
 import prospector.traverse.world.TraverseWorld;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import java.util.Optional;
 
 public class BiomeDataBasePopulator implements IBiomeDataBasePopulator {
 
-    private Species fir, autumn_yellow, autumn_orange, autumn_red, autumn_brown, birch, oak, acacia, swamp, darkoak, cactus;
+    private Species fir, autumn_yellow, autumn_orange, autumn_red, autumn_brown, birch, oak, acacia, swamp, darkoak, jungle, cactus;
 
     @Override
     public void populate(BiomeDataBase biomeDataBase) {
@@ -34,6 +35,7 @@ public class BiomeDataBasePopulator implements IBiomeDataBasePopulator {
         acacia = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "acacia"));
         swamp = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "oakswamp"));
         darkoak = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "darkoak"));
+        jungle = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "jungle"));
         cactus = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "cactus"));
 
         // TraverseWorld.autumnalWoodsBiome
@@ -108,6 +110,7 @@ public class BiomeDataBasePopulator implements IBiomeDataBasePopulator {
         addDensitySelector(biomeDataBase, TraverseWorld.woodlandsBiome,scale(0.6) );
         addChanceSelector(biomeDataBase, TraverseWorld.woodlandsBiome, chance(0.75f));
 
+        // TODO: Normal cactus still seem to generate here.
         // TraverseWorld.redDesertBiome
         addSpeciesSelector(biomeDataBase, TraverseWorld.redDesertBiome, new BiomePropertySelectors.StaticSpeciesSelector(cactus));
         addDensitySelector(biomeDataBase, TraverseWorld.redDesertBiome,scale(2.0));
@@ -117,6 +120,11 @@ public class BiomeDataBasePopulator implements IBiomeDataBasePopulator {
         addSpeciesSelector(biomeDataBase, TraverseWorld.mountainousDesertBiome, new BiomePropertySelectors.StaticSpeciesSelector(cactus));
         addDensitySelector(biomeDataBase, TraverseWorld.mountainousDesertBiome,scale(2.0));
         addChanceSelector(biomeDataBase, TraverseWorld.mountainousDesertBiome, chance(0.05f));
+
+        // TraverseWorld.miniJungleBiome
+        // this.addSpeciesSelector(biomeDataBase, TraverseWorld.miniJungleBiome, new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 1).add(jungle, 4));
+        // this.addDensitySelector(biomeDataBase, TraverseWorld.miniJungleBiome, scale(2.0));
+        // this.addChanceSelector(biomeDataBase, TraverseWorld.miniJungleBiome, chance(0.05f));
 
         ArrayList<Biome> blackList = new ArrayList<>();
         blackList.add(TraverseWorld.canyonBiome);
