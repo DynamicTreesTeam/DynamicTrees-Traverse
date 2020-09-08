@@ -4,7 +4,7 @@
 Dynamic Trees compatibility add-on for Traverse. This is a fork of [odorousrex's](https://github.com/odorousrex) [original project](https://github.com/odorousrex/DynamicTreesTraverse), as it no longer works with newer versions of Dynamic Trees. 
 
 ## Download
-Download the old project at it's [CurseForge page](https://www.curseforge.com/minecraft/mc-mods/dynamic-trees-traverse-compat), but note it no longer works with newer versions of Dynamic Trees. The updated version will be released very soon.
+Download at the [CurseForge Project](https://www.curseforge.com/minecraft/mc-mods/dynamic-trees-traverse), or at the [Releases](https://github.com/Harleyoc1/DynamicTreesTraverse/releases) section.
 
 ## Supported Trees
 - Fir
