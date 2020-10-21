@@ -3,6 +3,7 @@ package dttraverse;
 import com.ferreusveritas.dynamictrees.ModConstants;
 import com.ferreusveritas.dynamictrees.ModItems;
 import com.ferreusveritas.dynamictrees.ModRecipes;
+import com.ferreusveritas.dynamictrees.ModTrees;
 import com.ferreusveritas.dynamictrees.api.TreeHelper;
 import com.ferreusveritas.dynamictrees.api.TreeRegistry;
 import com.ferreusveritas.dynamictrees.api.WorldGenRegistry;
@@ -39,14 +40,16 @@ import net.minecraftforge.registries.IForgeRegistry;
 import prospector.traverse.init.TraverseBlocks;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 @Mod.EventBusSubscriber(modid = DynamicTreesTraverse.MODID)
-@GameRegistry.ObjectHolder(DynamicTreesTraverse.MODID)
 public class ModContent {
 
     public static ILeavesProperties firLeavesProperties, autumnYellowLeavesProperties, autumnOrangeLeavesProperties, autumnRedLeavesProperties, autumnBrownLeavesProperties;
-    public static ArrayList<TreeFamily> trees = new ArrayList<TreeFamily>();
+
+    public static final ArrayList<TreeFamily> TREES = new ArrayList<>();
+    public static final ArrayList<Species> SPECIES = new ArrayList<>();
 
     @SubscribeEvent
     public static void registerDataBasePopulators(final WorldGenRegistry.BiomeDataBasePopulatorRegistryEvent event) {
@@ -57,8 +60,9 @@ public class ModContent {
     public static void registerBlocks(final RegistryEvent.Register<Block> event) {
         IForgeRegistry<Block> registry = event.getRegistry();
 
-        TreeFamily oakTree = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "oak")).getFamily();
-        TreeFamily birchTree = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "birch")).getFamily();
+        final TreeFamily oakTree = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, ModTrees.OAK)).getFamily();
+        final TreeFamily birchTree = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, ModTrees.BIRCH)).getFamily();
+        final TreeFamily jungleTree = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, ModTrees.JUNGLE)).getFamily();
 
         firLeavesProperties = setUpLeaves(TraverseBlocks.blocks.get("fir_leaves"), "conifer", 5);
         autumnBrownLeavesProperties = setUpLeaves(TraverseBlocks.blocks.get("brown_autumnal_leaves"), "deciduous", 1);
@@ -72,24 +76,21 @@ public class ModContent {
         LeavesPaging.getLeavesBlockForSequence(DynamicTreesTraverse.MODID, 12, autumnRedLeavesProperties);
         LeavesPaging.getLeavesBlockForSequence(DynamicTreesTraverse.MODID, 16, autumnBrownLeavesProperties);
 
-        Species.REGISTRY.register(new SpeciesAutumnYellow(birchTree));
-        Species.REGISTRY.register(new SpeciesAutumnOrange(oakTree));
-        Species.REGISTRY.register(new SpeciesAutumnRed(oakTree));
-        Species.REGISTRY.register(new SpeciesAutumnBrown(oakTree));
+        SPECIES.addAll(Arrays.asList(new SpeciesAutumnYellow(birchTree), new SpeciesAutumnOrange(oakTree), new SpeciesAutumnRed(oakTree), new SpeciesAutumnBrown(oakTree), new SpeciesMiniJungle(jungleTree)));
+        SPECIES.forEach(Species.REGISTRY::register);
 
         TreeFamily firTree = new TreeFir();
-        Collections.addAll(trees, firTree);
-        trees.forEach(tree -> tree.registerSpecies(Species.REGISTRY));
+        Collections.addAll(TREES, firTree);
+        TREES.forEach(tree -> tree.registerSpecies(Species.REGISTRY));
 
         ArrayList<Block> treeBlocks = new ArrayList<>();
-        trees.forEach(tree -> tree.getRegisterableBlocks(treeBlocks));
+        TREES.forEach(tree -> tree.getRegisterableBlocks(treeBlocks));
         treeBlocks.addAll(LeavesPaging.getLeavesMapForModId(DynamicTreesTraverse.MODID).values());
         registry.registerAll(treeBlocks.toArray(new Block[treeBlocks.size()]));
     }
 
     public static ILeavesProperties setUpLeaves (Block primitiveLeavesBlock, String cellKit, int smotherLeavesMax) {
-        ILeavesProperties leavesProperties;
-        leavesProperties = new LeavesProperties(
+        return new LeavesProperties(
                 primitiveLeavesBlock.getDefaultState(),
                 new ItemStack(primitiveLeavesBlock, 1, 0),
                 TreeRegistry.findCellKit(cellKit)) {
@@ -108,22 +109,18 @@ public class ModContent {
                 return 1;
             }
         };
-        return leavesProperties;
     }
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
 
-        registry.registerAll(
-                TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_yellow")).getSeed(),
-                TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_orange")).getSeed(),
-                TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_red")).getSeed(),
-                TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_brown")).getSeed()
-        );
+        SPECIES.forEach(species -> {
+            if (species.getFamily().getCommonSpecies().getSeed() != species.getSeed()) registry.register(species.getSeed());
+        });
 
         ArrayList<Item> treeItems = new ArrayList<>();
-        trees.forEach(tree -> tree.getRegisterableItems(treeItems));
+        TREES.forEach(tree -> tree.getRegisterableItems(treeItems));
         registry.registerAll(treeItems.toArray(new Item[treeItems.size()]));
     }
 
@@ -147,7 +144,7 @@ public class ModContent {
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
-        for(TreeFamily tree : ModContent.trees) {
+        for(TreeFamily tree : ModContent.TREES) {
             ModelHelper.regModel(tree.getDynamicBranch());
             ModelHelper.regModel(tree.getCommonSpecies().getSeed());
             ModelHelper.regModel(tree);

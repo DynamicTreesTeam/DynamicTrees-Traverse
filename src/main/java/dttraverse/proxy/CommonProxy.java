@@ -21,8 +21,8 @@ public class CommonProxy {
     }
 
     private static void registerSaplingReplacement(String saplingName, String speciesName) {
-        IBlockState sapling = TraverseBlocks.blocks.get(saplingName).getDefaultState();
-        Species species = TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, speciesName));
+        final IBlockState sapling = TraverseBlocks.blocks.get(saplingName).getDefaultState();
+        final Species species = TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, speciesName));
         TreeRegistry.registerSaplingReplacer(sapling, species);
     }
 
