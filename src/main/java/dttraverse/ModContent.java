@@ -44,7 +44,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 @Mod.EventBusSubscriber(modid = DynamicTreesTraverse.MODID)
-public class ModContent {
+public final class ModContent {
 
     public static ILeavesProperties firLeavesProperties, autumnYellowLeavesProperties, autumnOrangeLeavesProperties, autumnRedLeavesProperties, autumnBrownLeavesProperties;
 

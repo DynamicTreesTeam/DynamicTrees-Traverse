@@ -36,7 +36,7 @@ public final class SpeciesMiniJungle extends Species {
         this.setupStandardSeedDropping();
 
         this.addGenFeature(new FeatureGenCocoa());
-        this.addGenFeature((new FeatureGenVine()).setQuantity(12).setMaxLength(6));
+        this.addGenFeature((new FeatureGenVine()).setQuantity(16).setMaxLength(6));
 
         this.getFamily().addSpeciesLocationOverride((world, trunkPos) -> (world.getBiome(trunkPos)).equals(TraverseWorld.miniJungleBiome) || (world.getBiome(trunkPos)).equals(Biomes.DESERT) ? this : NULLSPECIES);
     }

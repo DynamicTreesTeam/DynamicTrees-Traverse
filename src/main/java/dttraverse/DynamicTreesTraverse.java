@@ -14,7 +14,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid=DynamicTreesTraverse.MODID, name = DynamicTreesTraverse.NAME, version = DynamicTreesTraverse.VERSION, dependencies = DynamicTreesTraverse.DEPENDENCIES, updateJSON = "http://harleyoconnor.com/mods/minecraft/dynamic-trees-traverse/version-info.json")
-public class DynamicTreesTraverse {
+public final class DynamicTreesTraverse {
 
     public static final String MODID = "dttraverse";
     public static final String NAME = "Dynamic Trees Traverse";
@@ -40,7 +40,7 @@ public class DynamicTreesTraverse {
     }
 
     @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+    public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit();
     }
 

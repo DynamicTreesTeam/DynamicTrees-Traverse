@@ -31,111 +31,116 @@ public final class BiomeDataBasePopulator implements IBiomeDataBasePopulator {
         // Vanilla trees
         final Species birch = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "birch"));
         final Species oak = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "oak"));
+        final Species spruce = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "spruce"));
         final Species acacia = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "acacia"));
         final Species swamp = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "oakswamp"));
         final Species darkOak = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "darkoak"));
-        final Species jungle = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "jungle"));
         final Species cactus = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "cactus"));
 
         // TraverseWorld.autumnalWoodsBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.autumnalWoodsBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(autumnYellow, 4).add(autumnOrange, 5).add(oak, 1).add(autumnBrown, 2).add(autumnRed, 4));
-        addDensitySelector(biomeDataBase, TraverseWorld.autumnalWoodsBiome,scale(0.9) );
-        addChanceSelector(biomeDataBase, TraverseWorld.autumnalWoodsBiome, chance(1.0f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.autumnalWoodsBiome, new BiomePropertySelectors.RandomSpeciesSelector().add(autumnYellow, 4).add(autumnOrange, 5).add(oak, 1).add(autumnBrown, 2).add(autumnRed, 4));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.autumnalWoodsBiome, this.scale(0.9));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.autumnalWoodsBiome, this.chance(1.0f));
 
         // TraverseWorld.autumnalWoodedHillsBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.autumnalWoodedHillsBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(autumnYellow, 4).add(autumnOrange, 5).add(oak, 1).add(autumnBrown, 2).add(autumnRed, 4));
-        addDensitySelector(biomeDataBase, TraverseWorld.autumnalWoodedHillsBiome,scale(0.9) );
-        addChanceSelector(biomeDataBase, TraverseWorld.autumnalWoodedHillsBiome, chance(1.0f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.autumnalWoodedHillsBiome, new BiomePropertySelectors.RandomSpeciesSelector().add(autumnYellow, 4).add(autumnOrange, 5).add(oak, 1).add(autumnBrown, 2).add(autumnRed, 4));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.autumnalWoodedHillsBiome, this.scale(0.9));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.autumnalWoodedHillsBiome, this.chance(1.0f));
 
         // TraverseWorld.temperateRainforestBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.temperateRainforestBiome,new BiomePropertySelectors.StaticSpeciesSelector(fir));
-        addChanceSelector(biomeDataBase, TraverseWorld.temperateRainforestBiome, chance(1.0f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.temperateRainforestBiome, new BiomePropertySelectors.StaticSpeciesSelector(fir));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.temperateRainforestBiome, this.chance(1.0f));
 
         // TraverseWorld.snowyConiferousForestBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.snowyConiferousForestBiome,new BiomePropertySelectors.StaticSpeciesSelector(fir));
-        addChanceSelector(biomeDataBase, TraverseWorld.snowyConiferousForestBiome, chance(1.0f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.snowyConiferousForestBiome, new BiomePropertySelectors.StaticSpeciesSelector(fir));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.snowyConiferousForestBiome, this.chance(1.0f));
 
         // TraverseWorld.aridHighlandBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.aridHighlandBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(acacia, 4).add(oak, 1).add(cactus, 1));
-        addDensitySelector(biomeDataBase, TraverseWorld.aridHighlandBiome,scale(0.1) );
-        addChanceSelector(biomeDataBase, TraverseWorld.aridHighlandBiome, chance(0.2f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.aridHighlandBiome, new BiomePropertySelectors.RandomSpeciesSelector().add(acacia, 4).add(oak, 1).add(cactus, 1));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.aridHighlandBiome, this.scale(0.1));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.aridHighlandBiome, this.chance(0.2f));
 
         // TraverseWorld.badlandsBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.badlandsBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(autumnBrown, 1).add(oak, 1));
-        addDensitySelector(biomeDataBase, TraverseWorld.badlandsBiome,scale(0.03) );
-        addChanceSelector(biomeDataBase, TraverseWorld.badlandsBiome, chance(0.0625f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.badlandsBiome, new BiomePropertySelectors.RandomSpeciesSelector().add(autumnBrown, 1).add(oak, 1));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.badlandsBiome, this.scale(0.03));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.badlandsBiome, this.chance(0.0625f));
 
         // TraverseWorld.birchForestedHillsBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.birchForestedHillsBiome,new BiomePropertySelectors.StaticSpeciesSelector(birch));
-        addChanceSelector(biomeDataBase, TraverseWorld.birchForestedHillsBiome, chance(1.25f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.birchForestedHillsBiome, new BiomePropertySelectors.StaticSpeciesSelector(birch));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.birchForestedHillsBiome, this.chance(1.25f));
 
         // TraverseWorld.forestedHillsBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.forestedHillsBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 4).add(birch, 2));
-        addDensitySelector(biomeDataBase, TraverseWorld.forestedHillsBiome,scale(0.9) );
-        addChanceSelector(biomeDataBase, TraverseWorld.forestedHillsBiome, chance(1.0f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.forestedHillsBiome, new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 4).add(birch, 2));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.forestedHillsBiome, this.scale(0.9));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.forestedHillsBiome, this.chance(1.0f));
 
         // TraverseWorld.lushHillsBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.lushHillsBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 4).add(swamp, 1));
-        addDensitySelector(biomeDataBase, TraverseWorld.lushHillsBiome,scale(0.4) );
-        addChanceSelector(biomeDataBase, TraverseWorld.lushHillsBiome, chance(1.0f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.lushHillsBiome, new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 4).add(swamp, 1));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.lushHillsBiome, this.scale(0.4));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.lushHillsBiome, this.chance(1.0f));
 
         // TraverseWorld.lushSwampBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.lushSwampBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(swamp, 4).add(oak, 1));
-        addDensitySelector(biomeDataBase, TraverseWorld.lushSwampBiome,scale(0.6) );
-        addChanceSelector(biomeDataBase, TraverseWorld.lushSwampBiome, chance(1.0f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.lushSwampBiome, new BiomePropertySelectors.RandomSpeciesSelector().add(swamp, 4).add(oak, 1));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.lushSwampBiome, this.scale(0.6));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.lushSwampBiome, this.chance(1.0f));
 
         // TraverseWorld.meadowBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.meadowBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 2).add(birch, 1));
-        addDensitySelector(biomeDataBase, TraverseWorld.meadowBiome,scale(0.01) );
-        addChanceSelector(biomeDataBase, TraverseWorld.meadowBiome, chance(0.5f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.meadowBiome, new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 2).add(birch, 1));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.meadowBiome, this.scale(0.01));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.meadowBiome, this.chance(0.5f));
 
         // TraverseWorld.rockyPlainsBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.rockyPlainsBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 2));
-        addDensitySelector(biomeDataBase, TraverseWorld.rockyPlainsBiome,scale(0.01) );
-        addChanceSelector(biomeDataBase, TraverseWorld.rockyPlainsBiome, chance(0.05f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.rockyPlainsBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 2));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.rockyPlainsBiome, this.scale(0.01));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.rockyPlainsBiome, this.chance(0.05f));
 
         // TraverseWorld.rockyPlateauBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.rockyPlateauBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 2));
-        addDensitySelector(biomeDataBase, TraverseWorld.rockyPlateauBiome,scale(0.01) );
-        addChanceSelector(biomeDataBase, TraverseWorld.rockyPlateauBiome, chance(0.5f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.rockyPlateauBiome, new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 2));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.rockyPlateauBiome, this.scale(0.01));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.rockyPlateauBiome, this.chance(0.5f));
 
         // TraverseWorld.thicketBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.thicketBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 4).add(darkOak, 2));
-        addDensitySelector(biomeDataBase, TraverseWorld.thicketBiome,scale(1.5) );
-        addChanceSelector(biomeDataBase, TraverseWorld.thicketBiome, chance(1.0f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.thicketBiome, new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 4).add(darkOak, 2));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.thicketBiome, this.scale(1.5));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.thicketBiome, this.chance(1.0f));
 
         // TraverseWorld.woodlandsBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.woodlandsBiome,new BiomePropertySelectors.StaticSpeciesSelector(oak));
-        addDensitySelector(biomeDataBase, TraverseWorld.woodlandsBiome,scale(0.6) );
-        addChanceSelector(biomeDataBase, TraverseWorld.woodlandsBiome, chance(0.75f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.woodlandsBiome, new BiomePropertySelectors.StaticSpeciesSelector(oak));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.woodlandsBiome, this.scale(0.6));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.woodlandsBiome, this.chance(0.75f));
 
-        // TODO: Normal cactus still seem to generate here.
         // TraverseWorld.redDesertBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.redDesertBiome, new BiomePropertySelectors.StaticSpeciesSelector(cactus));
-        addDensitySelector(biomeDataBase, TraverseWorld.redDesertBiome,scale(2.0));
-        addChanceSelector(biomeDataBase, TraverseWorld.redDesertBiome, chance(0.05f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.redDesertBiome, new BiomePropertySelectors.StaticSpeciesSelector(cactus));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.redDesertBiome, this.scale(2.0));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.redDesertBiome, this.chance(0.05f));
 
         // TraverseWorld.mountainousDesertBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.mountainousDesertBiome, new BiomePropertySelectors.StaticSpeciesSelector(cactus));
-        addDensitySelector(biomeDataBase, TraverseWorld.mountainousDesertBiome,scale(2.0));
-        addChanceSelector(biomeDataBase, TraverseWorld.mountainousDesertBiome, chance(0.05f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.mountainousDesertBiome, new BiomePropertySelectors.StaticSpeciesSelector(cactus));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.mountainousDesertBiome, this.scale(2.0));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.mountainousDesertBiome, this.chance(0.05f));
 
         // TraverseWorld.miniJungleBiome
-        // this.addSpeciesSelector(biomeDataBase, TraverseWorld.miniJungleBiome, new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 1).add(jungle, 4));
-        // this.addDensitySelector(biomeDataBase, TraverseWorld.miniJungleBiome, scale(2.0));
-        // this.addChanceSelector(biomeDataBase, TraverseWorld.miniJungleBiome, chance(0.05f));
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.miniJungleBiome, new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 1).add(miniJungle, 4));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.miniJungleBiome, this.scale(2.0));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.miniJungleBiome, this.chance(0.85f));
 
-        ArrayList<Biome> blackList = new ArrayList<>();
-        blackList.add(TraverseWorld.canyonBiome);
-        blackList.add(TraverseWorld.cliffsBiome);
-        blackList.add(TraverseWorld.cragCliffsBiome);
-        blackList.add(TraverseWorld.desertShrublandBiome);
-        blackList.add(TraverseWorld.glacierBiome);
-        blackList.add(TraverseWorld.glacierSpikesBiome);
-        blackList.add(TraverseWorld.miniJungleBiome);
+        // Cliffs - trees should be rather common as there's barely any dirt for them to spawn anyway.
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.cliffsBiome, new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 2).add(4));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.cliffsBiome, this.scale(2.0f));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.cliffsBiome, this.chance(0.5f));
+
+        // Glacier - trees should be rather common as there's barely any dirt for them to spawn anyway.
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.glacierBiome, new BiomePropertySelectors.RandomSpeciesSelector().add(spruce, 2).add(8));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.glacierBiome, this.scale(2.0f));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.glacierBiome, this.chance(0.5f));
+
+        // Glacier Spikes - trees should be rather common as there's barely any dirt for them to spawn anyway.
+        this.addSpeciesSelector(biomeDataBase, TraverseWorld.glacierSpikesBiome, new BiomePropertySelectors.RandomSpeciesSelector().add(spruce, 2).add(8));
+        this.addDensitySelector(biomeDataBase, TraverseWorld.glacierSpikesBiome, this.scale(2.0f));
+        this.addChanceSelector(biomeDataBase, TraverseWorld.glacierSpikesBiome, this.chance(0.5f));
 
         Biome.REGISTRY.forEach(biome -> {
-            if (biome.getRegistryName().getPath().equals("traverse") && !blackList.contains(biome)) {
+            if (biome.getRegistryName().getNamespace().equals("traverse")) {
                 biomeDataBase.setCancelVanillaTreeGen(biome, true);
             }
         });
@@ -153,12 +158,12 @@ public final class BiomeDataBasePopulator implements IBiomeDataBasePopulator {
         dbase.setChanceSelector(biome, selector, BiomeDataBase.Operation.REPLACE);
     }
 
-    private BiomePropertySelectors.IDensitySelector scale(double factor1) {
-        return (rnd, nd) -> nd * factor1;
+    private BiomePropertySelectors.IDensitySelector scale (double factor) {
+        return (rand, noiseDensity) -> noiseDensity * factor;
     }
 
     // code from ferreusveritas' JsonBiomePropertyApplierChance
-    private BiomePropertySelectors.IChanceSelector chance(float value) {
+    private BiomePropertySelectors.IChanceSelector chance (float value) {
         if(value <= 0) {
             return (rnd, spc, rad) -> BiomePropertySelectors.EnumChance.CANCEL;
         }

@@ -5,7 +5,14 @@ import com.ferreusveritas.dynamictrees.trees.Species;
 import dttraverse.DynamicTreesTraverse;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import prospector.traverse.init.TraverseBlocks;
+import prospector.traverse.world.TraverseWorld;
+import prospector.traverse.world.biomes.BiomeMiniJungle;
+
+import java.util.Random;
 
 public class CommonProxy {
 
