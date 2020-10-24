@@ -1,23 +1,14 @@
 package dttraverse.trees;
 
-import com.ferreusveritas.dynamictrees.ModConstants;
-import com.ferreusveritas.dynamictrees.ModTrees;
-import com.ferreusveritas.dynamictrees.api.TreeRegistry;
-import com.ferreusveritas.dynamictrees.growthlogic.IGrowthLogicKit;
 import com.ferreusveritas.dynamictrees.items.Seed;
-import com.ferreusveritas.dynamictrees.systems.GrowSignal;
 import com.ferreusveritas.dynamictrees.systems.featuregen.FeatureGenCocoa;
 import com.ferreusveritas.dynamictrees.systems.featuregen.FeatureGenVine;
 import com.ferreusveritas.dynamictrees.trees.Species;
 import com.ferreusveritas.dynamictrees.trees.TreeFamily;
-import com.ferreusveritas.dynamictrees.trees.TreeFamilyVanilla;
 import dttraverse.DynamicTreesTraverse;
-import dttraverse.ModContent;
+import net.minecraft.init.Biomes;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import prospector.traverse.world.TraverseWorld;
@@ -47,7 +38,7 @@ public final class SpeciesMiniJungle extends Species {
         this.addGenFeature(new FeatureGenCocoa());
         this.addGenFeature((new FeatureGenVine()).setQuantity(12).setMaxLength(6));
 
-        this.getFamily().addSpeciesLocationOverride((world, trunkPos) -> (world.getBiome(trunkPos)).equals(TraverseWorld.miniJungleBiome) ? this : NULLSPECIES);
+        this.getFamily().addSpeciesLocationOverride((world, trunkPos) -> (world.getBiome(trunkPos)).equals(TraverseWorld.miniJungleBiome) || (world.getBiome(trunkPos)).equals(Biomes.DESERT) ? this : NULLSPECIES);
     }
 
     @Override

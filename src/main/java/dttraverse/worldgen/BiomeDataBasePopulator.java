@@ -15,36 +15,35 @@ import prospector.traverse.world.TraverseWorld;
 import java.util.ArrayList;
 import java.util.Optional;
 
-public class BiomeDataBasePopulator implements IBiomeDataBasePopulator {
-
-    private Species fir, autumn_yellow, autumn_orange, autumn_red, autumn_brown, birch, oak, acacia, swamp, darkoak, jungle, cactus;
+public final class BiomeDataBasePopulator implements IBiomeDataBasePopulator {
 
     @Override
     public void populate(BiomeDataBase biomeDataBase) {
 
         // Traverse trees
-        fir = TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "fir"));
-        autumn_brown = TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_brown"));
-        autumn_orange = TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_orange"));
-        autumn_red = TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_red"));
-        autumn_yellow = TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_yellow"));
+        final Species fir = TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "fir"));
+        final Species autumnBrown = TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_brown"));
+        final Species autumnOrange = TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_orange"));
+        final Species autumnRed = TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_red"));
+        final Species autumnYellow = TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_yellow"));
+        final Species miniJungle = TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, "mini_jungle"));
 
         // Vanilla trees
-        birch = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "birch"));
-        oak = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "oak"));
-        acacia = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "acacia"));
-        swamp = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "oakswamp"));
-        darkoak = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "darkoak"));
-        jungle = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "jungle"));
-        cactus = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "cactus"));
+        final Species birch = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "birch"));
+        final Species oak = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "oak"));
+        final Species acacia = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "acacia"));
+        final Species swamp = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "oakswamp"));
+        final Species darkOak = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "darkoak"));
+        final Species jungle = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "jungle"));
+        final Species cactus = TreeRegistry.findSpecies(new ResourceLocation(ModConstants.MODID, "cactus"));
 
         // TraverseWorld.autumnalWoodsBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.autumnalWoodsBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(autumn_yellow, 4).add(autumn_orange, 5).add(oak, 1).add(autumn_brown, 2).add(autumn_red, 4));
+        addSpeciesSelector(biomeDataBase, TraverseWorld.autumnalWoodsBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(autumnYellow, 4).add(autumnOrange, 5).add(oak, 1).add(autumnBrown, 2).add(autumnRed, 4));
         addDensitySelector(biomeDataBase, TraverseWorld.autumnalWoodsBiome,scale(0.9) );
         addChanceSelector(biomeDataBase, TraverseWorld.autumnalWoodsBiome, chance(1.0f));
 
         // TraverseWorld.autumnalWoodedHillsBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.autumnalWoodedHillsBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(autumn_yellow, 4).add(autumn_orange, 5).add(oak, 1).add(autumn_brown, 2).add(autumn_red, 4));
+        addSpeciesSelector(biomeDataBase, TraverseWorld.autumnalWoodedHillsBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(autumnYellow, 4).add(autumnOrange, 5).add(oak, 1).add(autumnBrown, 2).add(autumnRed, 4));
         addDensitySelector(biomeDataBase, TraverseWorld.autumnalWoodedHillsBiome,scale(0.9) );
         addChanceSelector(biomeDataBase, TraverseWorld.autumnalWoodedHillsBiome, chance(1.0f));
 
@@ -62,7 +61,7 @@ public class BiomeDataBasePopulator implements IBiomeDataBasePopulator {
         addChanceSelector(biomeDataBase, TraverseWorld.aridHighlandBiome, chance(0.2f));
 
         // TraverseWorld.badlandsBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.badlandsBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(autumn_brown, 1).add(oak, 1));
+        addSpeciesSelector(biomeDataBase, TraverseWorld.badlandsBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(autumnBrown, 1).add(oak, 1));
         addDensitySelector(biomeDataBase, TraverseWorld.badlandsBiome,scale(0.03) );
         addChanceSelector(biomeDataBase, TraverseWorld.badlandsBiome, chance(0.0625f));
 
@@ -101,7 +100,7 @@ public class BiomeDataBasePopulator implements IBiomeDataBasePopulator {
         addChanceSelector(biomeDataBase, TraverseWorld.rockyPlateauBiome, chance(0.5f));
 
         // TraverseWorld.thicketBiome
-        addSpeciesSelector(biomeDataBase, TraverseWorld.thicketBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 4).add(darkoak, 2));
+        addSpeciesSelector(biomeDataBase, TraverseWorld.thicketBiome,new BiomePropertySelectors.RandomSpeciesSelector().add(oak, 4).add(darkOak, 2));
         addDensitySelector(biomeDataBase, TraverseWorld.thicketBiome,scale(1.5) );
         addChanceSelector(biomeDataBase, TraverseWorld.thicketBiome, chance(1.0f));
 
@@ -136,7 +135,7 @@ public class BiomeDataBasePopulator implements IBiomeDataBasePopulator {
         blackList.add(TraverseWorld.miniJungleBiome);
 
         Biome.REGISTRY.forEach(biome -> {
-            if (biome.getRegistryName().getResourceDomain().equals("traverse") && !blackList.contains(biome)) {
+            if (biome.getRegistryName().getPath().equals("traverse") && !blackList.contains(biome)) {
                 biomeDataBase.setCancelVanillaTreeGen(biome, true);
             }
         });

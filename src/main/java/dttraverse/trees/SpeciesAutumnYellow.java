@@ -16,23 +16,23 @@ import prospector.traverse.world.TraverseWorld;
 
 import java.util.Random;
 
-public class SpeciesAutumnYellow extends Species {
+public final class SpeciesAutumnYellow extends Species {
 
     public SpeciesAutumnYellow(TreeFamily treeFamily) {
         super(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_yellow"), treeFamily, ModContent.autumnYellowLeavesProperties);
 
-        setBasicGrowingParameters(0.1f, 14.0f, 4, 4, 1.25f);
+        this.setBasicGrowingParameters(0.1f, 14.0f, 4, 4, 1.25f);
 
-        setRequiresTileEntity(true);
+        this.setRequiresTileEntity(true);
 
-        envFactor(BiomeDictionary.Type.HOT, 0.50f);
-        envFactor(BiomeDictionary.Type.DRY, 0.50f);
-        envFactor(BiomeDictionary.Type.FOREST, 1.05f);
+        this.envFactor(BiomeDictionary.Type.HOT, 0.50f);
+        this.envFactor(BiomeDictionary.Type.DRY, 0.50f);
+        this.envFactor(BiomeDictionary.Type.FOREST, 1.05f);
 
-        generateSeed();
-        setupStandardSeedDropping();
+        this.generateSeed();
+        this.setupStandardSeedDropping();
 
-        leavesProperties.setTree(treeFamily);
+        this.leavesProperties.setTree(treeFamily);
     }
 
     @Override

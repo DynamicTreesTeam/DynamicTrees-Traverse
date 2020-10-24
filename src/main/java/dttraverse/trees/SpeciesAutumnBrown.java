@@ -3,7 +3,6 @@ package dttraverse.trees;
 import com.ferreusveritas.dynamictrees.ModBlocks;
 import com.ferreusveritas.dynamictrees.api.TreeHelper;
 import com.ferreusveritas.dynamictrees.trees.Species;
-import com.ferreusveritas.dynamictrees.trees.SpeciesRare;
 import com.ferreusveritas.dynamictrees.trees.TreeFamily;
 import dttraverse.DynamicTreesTraverse;
 import dttraverse.ModContent;
@@ -17,23 +16,23 @@ import prospector.traverse.world.TraverseWorld;
 
 import java.util.Random;
 
-public class SpeciesAutumnBrown extends Species {
+public final class SpeciesAutumnBrown extends Species {
 
     public SpeciesAutumnBrown(TreeFamily treeFamily) {
         super(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_brown"), treeFamily, ModContent.autumnBrownLeavesProperties);
 
-        setBasicGrowingParameters(0.3f, 12.0f, upProbability, lowestBranchHeight, 0.65f);
+        this.setBasicGrowingParameters(0.3f, 12.0f, upProbability, lowestBranchHeight, 0.65f);
 
-        setRequiresTileEntity(true);
+        this.setRequiresTileEntity(true);
 
-        envFactor(BiomeDictionary.Type.LUSH, 0.75f);
-        envFactor(BiomeDictionary.Type.SPOOKY, 1.05f);
-        envFactor(BiomeDictionary.Type.DEAD, 1.05f);
+        this.envFactor(BiomeDictionary.Type.LUSH, 0.75f);
+        this.envFactor(BiomeDictionary.Type.SPOOKY, 1.05f);
+        this.envFactor(BiomeDictionary.Type.DEAD, 1.05f);
 
-        generateSeed();
-        setupStandardSeedDropping();
+        this.generateSeed();
+        this.setupStandardSeedDropping();
 
-        leavesProperties.setTree(treeFamily);
+        this.leavesProperties.setTree(treeFamily);
     }
 
     @Override

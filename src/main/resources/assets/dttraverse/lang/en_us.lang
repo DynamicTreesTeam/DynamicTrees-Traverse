@@ -1,3 +1,11 @@
+# Species
+species.dttraverse:autumn_brown.name=Brown Autumnal Oak
+species.dttraverse:autumn_orange.name=Orange Autumnal Oak
+species.dttraverse:autumn_red.name=Red Autumnal Oak
+species.dttraverse:autumn_yellow.name=Yellow Autumnal Birch
+species.dttraverse:mini_jungle.name=Mini Jungle
+species.dttraverse:fir.name=Fir
+
 # Items
 item.dttraverse:autumn_brownseed.name=Brown Autumnal Acorn
 item.dttraverse:autumn_redseed.name=Red Autumnal Acorn
@@ -6,9 +14,4 @@ item.dttraverse:autumn_yellowseed.name=Yellow Autumnal Catkin
 item.dttraverse:firseed.name=Fir Seed
 
 # Blocks
-tile.dttraverse:autumn_brown_leaves.name=Dynamic Brown Autumnal Leaves
-tile.dttraverse:autumn_red_leaves.name=Dynamic Red Autumnal Leaves
-tile.dttraverse:autumn_yellow_leaves.name=Dynamic Yellow Autumnal Leaves
-tile.dttraverse:autumn_orange_leaves.name=Dynamic Orange Autumnal Leaves
-tile.dttraverse:fir_leaves.name=Dynamic Fir Leaves
-tile.dttraverse:firbranch.name=Dynamic Fir Tree
+tile.dttraverse:firbranch.name=Fir Tree

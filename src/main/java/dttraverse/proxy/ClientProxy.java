@@ -1,6 +1,6 @@
 package dttraverse.proxy;
 
-public class ClientProxy extends CommonProxy {
+public final class ClientProxy extends CommonProxy {
 
     @Override
     public void preInit() {
@@ -12,7 +12,9 @@ public class ClientProxy extends CommonProxy {
         super.init();
     }
 
-    @Override public void postInit() {
+    @Override
+    public void postInit() {
         super.postInit();
     }
+
 }

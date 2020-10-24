@@ -3,11 +3,9 @@ package dttraverse.trees;
 import com.ferreusveritas.dynamictrees.ModBlocks;
 import com.ferreusveritas.dynamictrees.api.TreeHelper;
 import com.ferreusveritas.dynamictrees.trees.Species;
-import com.ferreusveritas.dynamictrees.trees.SpeciesRare;
 import com.ferreusveritas.dynamictrees.trees.TreeFamily;
 import dttraverse.DynamicTreesTraverse;
 import dttraverse.ModContent;
-import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumSkyBlock;
@@ -18,23 +16,23 @@ import prospector.traverse.world.TraverseWorld;
 
 import java.util.Random;
 
-public class SpeciesAutumnRed extends Species {
+public final class SpeciesAutumnRed extends Species {
 
     public SpeciesAutumnRed(TreeFamily treeFamily) {
         super(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_red"), treeFamily, ModContent.autumnRedLeavesProperties);
 
-        setBasicGrowingParameters(0.15f, 14.0f, 4, 4, 1.05f);
+        this.setBasicGrowingParameters(0.15f, 14.0f, 4, 4, 1.05f);
 
-        setRequiresTileEntity(true);
+        this.setRequiresTileEntity(true);
 
-        envFactor(BiomeDictionary.Type.HOT, 0.50f);
-        envFactor(BiomeDictionary.Type.DRY, 0.50f);
-        envFactor(BiomeDictionary.Type.FOREST, 1.05f);
+        this.envFactor(BiomeDictionary.Type.HOT, 0.50f);
+        this.envFactor(BiomeDictionary.Type.DRY, 0.50f);
+        this.envFactor(BiomeDictionary.Type.FOREST, 1.05f);
 
-        generateSeed();
-        setupStandardSeedDropping();
+        this.generateSeed();
+        this.setupStandardSeedDropping();
 
-        leavesProperties.setTree(treeFamily);
+        this.leavesProperties.setTree(treeFamily);
     }
 
     @Override

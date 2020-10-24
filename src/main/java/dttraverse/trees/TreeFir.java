@@ -28,26 +28,25 @@ import prospector.traverse.init.TraverseBlocks;
 import java.util.Collections;
 import java.util.List;
 
+public final class TreeFir extends TreeFamily {
 
-public class TreeFir extends TreeFamily {
-
-    public class SpeciesFir extends Species {
+    public static final class SpeciesFir extends Species {
 
         SpeciesFir(TreeFamily treeFamily) {
             super(treeFamily.getName(), treeFamily, ModContent.firLeavesProperties);
 
-            setBasicGrowingParameters(0.3f, 26.0f, 7, 6, 0.9f);
+            this.setBasicGrowingParameters(0.3f, 26.0f, 7, 6, 0.9f);
 
-            setGrowthLogicKit(TreeRegistry.findGrowthLogicKit(ModTrees.CONIFER));
+            this.setGrowthLogicKit(TreeRegistry.findGrowthLogicKit(ModTrees.CONIFER));
 
-            envFactor(BiomeDictionary.Type.HOT, 0.50f);
-            envFactor(BiomeDictionary.Type.DRY, 0.25f);
-            envFactor(BiomeDictionary.Type.WET, 0.75f);
+            this.envFactor(BiomeDictionary.Type.HOT, 0.50f);
+            this.envFactor(BiomeDictionary.Type.DRY, 0.25f);
+            this.envFactor(BiomeDictionary.Type.WET, 0.75f);
 
-            generateSeed();
-            setupStandardSeedDropping();
+            this.generateSeed();
+            this.setupStandardSeedDropping();
 
-            addGenFeature(new FeatureGenConiferTopper(getLeavesProperties()));
+            this.addGenFeature(new FeatureGenConiferTopper(getLeavesProperties()));
         }
 
         @Override
@@ -74,7 +73,7 @@ public class TreeFir extends TreeFamily {
 
     @Override
     public void createSpecies() {
-        setCommonSpecies(new SpeciesFir(this));
+        this.setCommonSpecies(new SpeciesFir(this));
     }
 
 }
