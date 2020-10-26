@@ -7,6 +7,7 @@ Dynamic Trees compatibility add-on for Traverse. This is a fork of [odorousrex's
 Download at the [CurseForge Project](https://www.curseforge.com/minecraft/mc-mods/dynamic-trees-traverse), or at the [Releases](https://github.com/Harleyoc1/DynamicTreesTraverse/releases) section.
 
 ## Supported Trees
+- Mini Jungle
 - Fir
 - Brown Autumnal Oak
 - Orange Autumnal Oak
