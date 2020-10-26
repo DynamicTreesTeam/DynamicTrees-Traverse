@@ -1,10 +1,7 @@
 package dttraverse;
 
 import com.ferreusveritas.dynamictrees.ModConstants;
-import com.ferreusveritas.dynamictrees.api.WorldGenRegistry;
-import com.ferreusveritas.dynamictrees.worldgen.TreeGenerator;
 import dttraverse.proxy.CommonProxy;
-import dttraverse.worldgen.BiomeDataBasePopulator;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -13,10 +10,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid=DynamicTreesTraverse.MODID, name = DynamicTreesTraverse.NAME, version = DynamicTreesTraverse.VERSION, dependencies = DynamicTreesTraverse.DEPENDENCIES, updateJSON = "http://harleyoconnor.com/mods/minecraft/dynamic-trees-traverse/version-info.json")
+@Mod(modid=DynamicTreesTraverse.MOD_ID, name = DynamicTreesTraverse.NAME, version = DynamicTreesTraverse.VERSION, dependencies = DynamicTreesTraverse.DEPENDENCIES, updateJSON = "http://harleyoconnor.com/mods/minecraft/dynamic-trees-traverse/version-info.json")
 public final class DynamicTreesTraverse {
 
-    public static final String MODID = "dttraverse";
+    public static final String MOD_ID = "dttraverse";
     public static final String NAME = "Dynamic Trees Traverse";
     public static final String VERSION = "1.12.2-2.0";
     public static final String DEPENDENCIES = ModConstants.REQAFTER + ModConstants.DYNAMICTREES_LATEST + ModConstants.NEXT + ModConstants.REQAFTER + "traverse";
@@ -24,7 +21,7 @@ public final class DynamicTreesTraverse {
     @Mod.Instance
     public static DynamicTreesTraverse instance;
 
-    public static final Logger logger = LogManager.getLogger(MODID);
+    public static final Logger logger = LogManager.getLogger(MOD_ID);
 
     @SidedProxy(clientSide = "dttraverse.proxy.ClientProxy", serverSide = "dttraverse.proxy.CommonProxy")
     public static CommonProxy proxy;

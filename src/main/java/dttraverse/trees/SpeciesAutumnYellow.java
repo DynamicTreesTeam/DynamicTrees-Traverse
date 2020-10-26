@@ -19,7 +19,7 @@ import java.util.Random;
 public final class SpeciesAutumnYellow extends Species {
 
     public SpeciesAutumnYellow(TreeFamily treeFamily) {
-        super(new ResourceLocation(DynamicTreesTraverse.MODID, "autumn_yellow"), treeFamily, ModContent.autumnYellowLeavesProperties);
+        super(new ResourceLocation(DynamicTreesTraverse.MOD_ID, "autumn_yellow"), treeFamily, ModContent.autumnYellowLeavesProperties);
 
         this.setBasicGrowingParameters(0.1f, 14.0f, 4, 4, 1.25f);
 

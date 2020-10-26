@@ -6,7 +6,6 @@ import com.ferreusveritas.dynamictrees.systems.featuregen.FeatureGenVine;
 import com.ferreusveritas.dynamictrees.trees.Species;
 import com.ferreusveritas.dynamictrees.trees.TreeFamily;
 import dttraverse.DynamicTreesTraverse;
-import net.minecraft.init.Biomes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
@@ -18,12 +17,8 @@ import prospector.traverse.world.TraverseWorld;
  */
 public final class SpeciesMiniJungle extends Species {
 
-    private final TreeFamily family;
-
     public SpeciesMiniJungle(final TreeFamily treeFamily) {
-        super(new ResourceLocation(DynamicTreesTraverse.MODID, "mini_jungle"), treeFamily);
-
-        this.family = treeFamily;
+        super(new ResourceLocation(DynamicTreesTraverse.MOD_ID, "mini_jungle"), treeFamily);
 
         this.setBasicGrowingParameters(0.4F, 9.0F, 2, 4, 0.9F);
 
@@ -31,14 +26,14 @@ public final class SpeciesMiniJungle extends Species {
         this.envFactor(BiomeDictionary.Type.DRY, 1.2f);
         this.envFactor(BiomeDictionary.Type.FOREST, 1.15f);
 
-        this.setGrowthLogicKit(this.family.getCommonSpecies().getGrowthLogicKit());
+        this.setGrowthLogicKit(treeFamily.getCommonSpecies().getGrowthLogicKit());
 
         this.setupStandardSeedDropping();
 
         this.addGenFeature(new FeatureGenCocoa());
         this.addGenFeature((new FeatureGenVine()).setQuantity(16).setMaxLength(6));
 
-        this.getFamily().addSpeciesLocationOverride((world, trunkPos) -> (world.getBiome(trunkPos)).equals(TraverseWorld.miniJungleBiome) || (world.getBiome(trunkPos)).equals(Biomes.DESERT) ? this : NULLSPECIES);
+        this.getFamily().addSpeciesLocationOverride((world, trunkPos) -> (world.getBiome(trunkPos)).equals(TraverseWorld.miniJungleBiome) ? this : NULLSPECIES);
     }
 
     @Override
@@ -48,12 +43,12 @@ public final class SpeciesMiniJungle extends Species {
 
     @Override
     public ItemStack getSeedStack(int qty) {
-        return this.family.getCommonSpecies().getSeedStack(qty);
+        return this.getFamily().getCommonSpecies().getSeedStack(qty);
     }
 
     @Override
     public Seed getSeed() {
-        return this.family.getCommonSpecies().getSeed();
+        return this.getFamily().getCommonSpecies().getSeed();
     }
 
 }

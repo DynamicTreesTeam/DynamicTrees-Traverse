@@ -5,14 +5,7 @@ import com.ferreusveritas.dynamictrees.trees.Species;
 import dttraverse.DynamicTreesTraverse;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import prospector.traverse.init.TraverseBlocks;
-import prospector.traverse.world.TraverseWorld;
-import prospector.traverse.world.biomes.BiomeMiniJungle;
-
-import java.util.Random;
 
 public class CommonProxy {
 
@@ -29,7 +22,7 @@ public class CommonProxy {
 
     private static void registerSaplingReplacement(String saplingName, String speciesName) {
         final IBlockState sapling = TraverseBlocks.blocks.get(saplingName).getDefaultState();
-        final Species species = TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MODID, speciesName));
+        final Species species = TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesTraverse.MOD_ID, speciesName));
         TreeRegistry.registerSaplingReplacer(sapling, species);
     }
 

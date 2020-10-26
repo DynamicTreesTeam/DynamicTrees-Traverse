@@ -2,13 +2,9 @@ package dttraverse.trees;
 
 import com.ferreusveritas.dynamictrees.ModTrees;
 import com.ferreusveritas.dynamictrees.api.TreeRegistry;
-import com.ferreusveritas.dynamictrees.blocks.BlockBranch;
-import com.ferreusveritas.dynamictrees.blocks.BlockDynamicSapling;
-import com.ferreusveritas.dynamictrees.systems.GrowSignal;
 import com.ferreusveritas.dynamictrees.systems.featuregen.FeatureGenConiferTopper;
 import com.ferreusveritas.dynamictrees.trees.Species;
 import com.ferreusveritas.dynamictrees.trees.TreeFamily;
-import com.ferreusveritas.dynamictrees.util.SafeChunkBounds;
 import dttraverse.DynamicTreesTraverse;
 import dttraverse.ModContent;
 import net.minecraft.block.Block;
@@ -16,17 +12,11 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import prospector.traverse.init.TraverseBlocks;
-import java.util.Collections;
-import java.util.List;
 
 public final class TreeFir extends TreeFamily {
 
@@ -57,7 +47,7 @@ public final class TreeFir extends TreeFamily {
     }
 
     public TreeFir() {
-        super(new ResourceLocation(DynamicTreesTraverse.MODID, "fir"));
+        super(new ResourceLocation(DynamicTreesTraverse.MOD_ID, "fir"));
 
         Block firLog = TraverseBlocks.blocks.get("fir_log");
         Item firLeavesItem = new ItemBlock(firLog);
