@@ -227,7 +227,12 @@
     "select" : { "name": "traverse:cliffs" },
     "apply": {
       "cancelvanilla": true,
-      "species" : "dynamictrees:oak",
+      "species" : {
+        "random": {
+          "dynamictrees:oak": 1,
+          "...": 2
+        }
+      },
       "density" : [ 2.0 ],
       "chance": 0.5
     }
@@ -236,7 +241,12 @@
     "select" : { "name": "traverse:glacier" },
     "apply": {
       "cancelvanilla": true,
-      "species" : "dynamictrees:spruce",
+      "species": {
+        "random": {
+          "dynamictrees:spruce": 1,
+          "...": 4
+        }
+      },
       "density" : [ 2.0 ],
       "chance": 0.5
     }
@@ -245,7 +255,12 @@
     "select" : { "name": "traverse:glacier_spikes" },
     "apply": {
       "cancelvanilla": true,
-      "species" : "dynamictrees:spruce",
+      "species": {
+        "random": {
+          "dynamictrees:spruce": 1,
+          "...": 4
+        }
+      },
       "density" : [ 2.0 ],
       "chance": 0.5
     }
@@ -254,7 +269,12 @@
     "select" : { "name": "traverse:desert_shrubland" },
     "apply": {
       "cancelvanilla": true,
-      "species" : "dttraverse:oak_shrub",
+      "species": {
+        "random": {
+          "dttraverse:oak_shrub": 3,
+          "...": 8
+        }
+      },
       "density" : [ 0.8 ],
       "chance": 0.6
     }
