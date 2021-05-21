@@ -1,4 +1,4 @@
-<img src="/src/main/resources/dtt-cover.png?raw=true" alt="banner" width="1176"/>
+<img src="/src/main/resources/dtt-cover.png" alt="banner" width="1176"/>
 
 # Dynamic Trees for Traverse
 Dynamic Trees compatibility add-on for Traverse. This is a fork of [odorousrex's](https://github.com/odorousrex) [original project](https://github.com/odorousrex/DynamicTreesTraverse), as it no longer works with newer versions of Dynamic Trees. 
