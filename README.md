@@ -13,9 +13,9 @@ Dynamic Trees for Traverse
     </a>
 </p>
 <br>
-Dynamic Trees compatibility add-on for Traverse.
+Dynamic Trees compatibility add-on for Traverse.<br>
 
-This is a fork of [odorousrex's](https://github.com/odorousrex) [original project](https://github.com/odorousrex/DynamicTreesTraverse), as it no longer works with newer versions of Dynamic Trees. 
+This is a fork of [odorousrex's](https://github.com/odorousrex) [original project](https://github.com/odorousrex/DynamicTreesTraverse). 
 
 ## Download
 Download at the [CurseForge page](https://www.curseforge.com/minecraft/mc-mods/dynamic-trees-traverse).
