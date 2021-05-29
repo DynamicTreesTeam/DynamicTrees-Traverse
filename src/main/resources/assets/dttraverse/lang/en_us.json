@@ -1,17 +1,17 @@
 {
     "species.dttraverse.brown_autumnal_oak": "Brown Autumnal Oak",
-    "species.dttraverse.orange_autumnal_oak": "Orange Autumnal Oak",
     "species.dttraverse.red_autumnal_oak": "Red Autumnal Oak",
+    "species.dttraverse.orange_autumnal_oak": "Orange Autumnal Oak",
     "species.dttraverse.yellow_autumnal_birch": "Yellow Autumnal Birch",
     "species.dttraverse.mini_jungle": "Mini Jungle",
     "species.dttraverse.oak_shrub": "Oak Shrub",
     "species.dttraverse.fir": "Fir",
 
+    "block.dttraverse.fir_branch": "Fir Tree",
+
     "item.dttraverse.brown_autumnal_oak_seed": "Brown Autumnal Acorn",
     "item.dttraverse.red_autumnal_oak_seed": "Red Autumnal Acorn",
     "item.dttraverse.orange_autumnal_oak_seed": "Orange Autumnal Acorn",
     "item.dttraverse.yellow_autumnal_birch_seed": "Yellow Autumnal Catkin",
-    "item.dttraverse.fir_seed": "Fir Seed",
-
-    "block.dttraverse.fir_branch": "Fir Tree"
+    "item.dttraverse.fir_seed": "Fir Cone"
 }
