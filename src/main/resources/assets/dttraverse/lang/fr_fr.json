@@ -1,0 +1,17 @@
+{
+    "species.dttraverse.brown_autumnal_oak": "Chêne automnal marron",
+    "species.dttraverse.red_autumnal_oak": "Chêne automnal rouge",
+    "species.dttraverse.orange_autumnal_oak": "Chêne automnal orange",
+    "species.dttraverse.yellow_autumnal_birch": "Bouleau automnal jaune",
+    "species.dttraverse.mini_jungle": "Petit Acajou",
+    "species.dttraverse.oak_shrub": "Arbuste de chêne",
+    "species.dttraverse.fir": "Sapin",
+
+    "block.dttraverse.fir_branch": "Sapin",
+
+    "item.dttraverse.brown_autumnal_oak_seed": "Gland de chêne automnal marron",
+    "item.dttraverse.red_autumnal_oak_seed": "Gland de chêne automnal rouge",
+    "item.dttraverse.orange_autumnal_oak_seed": "Gland de chêne automnal orange",
+    "item.dttraverse.yellow_autumnal_birch_seed": "Graine de bouleau autumnal jaune",
+    "item.dttraverse.fir_seed": "Cône de sapin"
+}
