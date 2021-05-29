@@ -13,7 +13,7 @@ Dynamic Trees for Traverse
     </a>
 </p>
 <br>
-Dynamic Trees compatibility add-on for Traverse.<br>
+Dynamic Trees compatibility add-on for Traverse.<br><br>
 
 This is a fork of [odorousrex's](https://github.com/odorousrex) [original project](https://github.com/odorousrex/DynamicTreesTraverse). 
 
