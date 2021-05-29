@@ -1,0 +1,7 @@
+{
+	"parent": "dynamictrees:item/branch",
+	"textures": {
+		"bark": "traverse:block/stripped_fir_log",
+		"rings": "traverse:block/stripped_fir_log_top"
+	}
+}

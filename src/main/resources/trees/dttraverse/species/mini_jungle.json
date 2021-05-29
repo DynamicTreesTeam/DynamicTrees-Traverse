@@ -1,0 +1,30 @@
+{
+  "family": "jungle",
+  "tapering": 0.4,
+  "signal_energy": 9.0,
+  "up_probability": 2,
+  "lowest_branch_height": 4,
+  "growth_rate": 0.9,
+  "growth_logic_kit": "jungle",
+  "leaves_properties": "jungle",
+  "environment_factors" : {
+    "dry": 1.2,
+    "hot": 1.15,
+    "forest": 1.15
+  },
+  "seed_drop_rarity": 1.0,
+  "stick_drop_rarity": 1.0,
+  "perfect_biomes": { "name": "traverse:mini_jungle" },
+  "common_override": { "name": "traverse:mini_jungle" },
+  "primitive_sapling": "jungle_sapling",
+  "features" : [
+    {
+      "name": "vines",
+      "properties": {
+        "quantity": 16,
+        "max_length": 16
+      }
+    },
+    "cocoa"
+  ]
+}

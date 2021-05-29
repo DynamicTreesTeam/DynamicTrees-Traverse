@@ -13,3 +13,6 @@ Download at the [CurseForge Project](https://www.curseforge.com/minecraft/mc-mod
 - Orange Autumnal Oak
 - Red Autumnal Oak
 - Yellow Autumnal Birch
+
+## Dynamic Trees +
+[Dynamic Trees +](https://www.curseforge.com/minecraft/mc-mods/dynamictreesplus) is an optional dependency. When installed, any cacti from Traverse biomes will be replaced with the cacti from DT+. 

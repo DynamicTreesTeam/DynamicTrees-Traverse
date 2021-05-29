@@ -1,0 +1,176 @@
+[
+  {
+    "__comment": "Cancel standard tree features from the overworld.",
+    "select": { "name": "traverse.*" },
+    "cancellers": {
+      "type": "tree",
+      "namespaces": ["minecraft", "traverse"]
+    }
+  },
+  {
+    "select" : { "name": "traverse:autumnal_wood.*" },
+    "apply": {
+      "species" : {
+        "random" : {
+          "dttraverse:yellow_autumnal_birch" : 4,
+          "dttraverse:orange_autumnal_oak" : 5,
+          "dttraverse:brown_autumnal_oak" : 2,
+          "dttraverse:red_autumnal_oak": 4,
+          "oak" : 1
+        }
+      },
+      "density" : [ 0.9 ],
+      "chance": 1.0
+    }
+  },
+  {
+    "select" : { "name": "traverse:.*coniferous.*" },
+    "apply": {
+      "species": "dttraverse:fir",
+      "chance": 1.0
+    }
+  },
+  {
+    "select" : { "name": "traverse:arid_highlands" },
+    "apply": {
+      "species" : {
+        "random" : {
+          "acacia" : 5,
+          "oak" : 1,
+          "dttraverse:oak_shrub": 2
+        }
+      },
+      "density" : [ 0.1, 0.3 ],
+      "chance": 0.4
+    }
+  },
+  {
+    "_comment": "If DT+ is loaded, remove default cacti and add dynamic cacti to Arid Highlands.",
+    "select" : { "name": "traverse:arid_highlands" },
+    "only_if_loaded": "dynamictreesplus",
+    "cancellers": {
+      "type": "dynamictreesplus:cactus",
+      "namespace": "minecraft"
+    },
+    "apply": {
+      "species": {
+        "method": "splice_before",
+        "random": {
+          "...": 15,
+          "dynamictreesplus:pillar_cactus" : 4,
+          "dynamictreesplus:pipe_cactus" : 1
+        }
+      }
+    }
+  },
+  {
+    "select" : { "name": "traverse:wooded.*" },
+    "apply": {
+      "species" : {
+        "random" : {
+          "birch" : 2,
+          "oak" : 4
+        }
+      },
+      "density" : [ 0.9 ],
+      "chance": 1.0
+    }
+  },
+  {
+    "select" : { "name": "traverse:lush_swamp" },
+    "apply": {
+      "species" : "swamp_oak",
+      "density" : [ 0.6 ],
+      "chance": 1.0
+    }
+  },
+  {
+    "select" : { "name": "traverse:meadow" },
+    "apply": {
+      "species" : "oak",
+      "density" : [ 0.01 ],
+      "chance": 0.1
+    }
+  },
+  {
+    "select" : { "name": "traverse:rocky_edge" },
+    "apply": {
+      "species" : {
+        "random" : {
+          "oak" : 2
+        }
+      },
+      "density" : [ 0.01 ],
+      "chance": 0.05
+    }
+  },
+  {
+    "select" : { "name": "traverse:plains_plateau" },
+    "apply": {
+      "species" : {
+        "random" : {
+          "oak" : 2
+        }
+      },
+      "density" : [ 0.01 ],
+      "chance": 0.5
+    }
+  },
+  {
+    "select" : { "name": "traverse:woodlands" },
+    "apply": {
+      "species": "oak",
+      "density" : [ 0.6 ],
+      "chance": 0.75
+    }
+  },
+  {
+    "select" : { "name": "traverse:mini_jungle" },
+    "apply": {
+      "species" : {
+        "random" : {
+          "oak" : 1,
+          "dttraverse:mini_jungle": 4
+        }
+      },
+      "density": [ 1.5, 1.25 ],
+      "chance": 1.0,
+      "forestness" : 0.7
+    }
+  },
+  {
+    "select" : { "name": "traverse:desert_shrubland" },
+    "apply": {
+      "species": "dttraverse:oak_shrub",
+      "density" : [ 0.8 ],
+      "chance": 0.6
+    }
+  },
+  {
+    "_comment": "If DT+ is loaded, remove default cacti and add dynamic cacti to Desert Shrubland.",
+    "select" : { "name": "traverse:desert_shrubland" },
+    "only_if_loaded": "dynamictreesplus",
+    "cancellers": {
+      "type": "dynamictreesplus:cactus",
+      "namespace": "minecraft"
+    },
+    "apply": {
+      "species": {
+        "method": "splice_before",
+        "random": {
+          "...": 21,
+          "dynamictreesplus:pillar_cactus" : 6,
+          "dynamictreesplus:pipe_cactus" : 1
+        }
+      }
+    }
+  },
+  {
+    "select": { "name": "traverse:rolling_hills" },
+    "apply": {
+      "species": "oak",
+      "density" : [ 0.05, 0.25 ],
+      "chance": 0.3
+    }
+  }
+]

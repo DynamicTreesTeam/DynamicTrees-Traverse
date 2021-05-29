@@ -1,0 +1,8 @@
+{
+  "common_leaves": "dttraverse:fir",
+  "common_species": "dttraverse:fir",
+  "primitive_log": "traverse:fir_log",
+  "primitive_stripped_log": "traverse:stripped_fir_log",
+  "max_branch_radius": 8,
+  "conifer_variants": true
+}
