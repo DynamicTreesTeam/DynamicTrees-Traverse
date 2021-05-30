@@ -10,7 +10,7 @@ displayName="Dynamic Trees for Traverse"
 updateJSONURL="https://github.com/Harleyoc1/DynamicTreesTraverse/blob/1.16.5/version_info.json?raw=true"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/dynamic-trees-traverse"
 logoFile="dtt-logo.png"
-credits=""
+credits="Odorousrex for making the original traverse add-on for 1.12.2."
 authors="Harley O'Connor"
 description='''
 Adds Dynamic Trees compatibility to Nature's Aura.
