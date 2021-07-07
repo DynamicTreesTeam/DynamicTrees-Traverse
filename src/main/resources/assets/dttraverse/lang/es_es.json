@@ -1,0 +1,17 @@
+{
+    "species.dttraverse.brown_autumnal_oak": "Roble otoñal marrón",
+    "species.dttraverse.red_autumnal_oak": "Roble otoñal rojo",
+    "species.dttraverse.orange_autumnal_oak": "Roble otoñal naranja",
+    "species.dttraverse.yellow_autumnal_birch": "Abedul otoñal amarillo",
+    "species.dttraverse.mini_jungle": "Mini Jungla",
+    "species.dttraverse.oak_shrub": "Arbusto de roble",
+    "species.dttraverse.fir": "Abeto blanco",
+
+    "block.dttraverse.fir_branch": "Abeto blanco",
+
+    "item.dttraverse.brown_autumnal_oak_seed": "Bellota otoñal marrón",
+    "item.dttraverse.red_autumnal_oak_seed": "Bellota otoñal roja",
+    "item.dttraverse.orange_autumnal_oak_seed": "Bellota otoñal naranja",
+    "item.dttraverse.yellow_autumnal_birch_seed": "Amento otoñal amarillo",
+    "item.dttraverse.fir_seed": "Piña de abeto blanco"
+}

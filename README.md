@@ -31,9 +31,7 @@ Download at the [CurseForge page](https://www.curseforge.com/minecraft/mc-mods/d
 ## Dynamic Trees +
 [Dynamic Trees +](https://www.curseforge.com/minecraft/mc-mods/dynamictreesplus) is an optional dependency. When installed, any cacti from Traverse biomes will be replaced with the cacti from DT+. 
 
-## Translations
-Thank you to the following people who spent their time making translations for the corresponding languages.
+## Translations 🇫🇷 🇪🇸 🇲🇽 🇷🇺
+Thank you to the people found [here](https://github.com/ferreusveritas/DynamicTrees/wiki/Translation-Credits) who spend their time creating and maintaining translations for this and other DT add-ons.
 
 If you speak another language and would like to help, please [join the Dynamic Trees Discord](https://discord.gg/bGby2qxvqu).
-
-- 🇫🇷 19PixelsPlaced
