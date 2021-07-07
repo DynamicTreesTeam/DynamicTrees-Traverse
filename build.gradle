@@ -1,13 +1,15 @@
-import org.w3c.dom.Element
-
 buildscript {
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' }
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.+', changing: true
     }
+}
+
+plugins {
+    id 'com.matthewprenger.cursegradle' version '1.4.0'
 }
 
 repositories {
@@ -22,30 +24,22 @@ repositories {
         url "https://www.cursemaven.com"
     }
     maven {
-        url "http://harleyoconnor.com/maven"
+        url "https://harleyoconnor.com/maven"
     }
 }
 
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'maven-publish'
 
-ext.configFile = file "gradle.properties"
-configFile.withReader {
-    def prop = new Properties()
-    prop.load(it)
-    ext.config = new ConfigSlurper().parse prop
-}
-
-version = "${config.mc_version}-${config.mod_version}"
-group = config.package_group
-archivesBaseName = config.mod_name
+version = "${mcVersion}-${modVersion}"
+group = packageGroup
+archivesBaseName = modName
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 minecraft {
-    mappings channel: 'snapshot', version: config.mappings_version
+    mappings channel: 'snapshot', version: "20210309-$mcVersion"
 
     runs {
         client {
@@ -54,8 +48,8 @@ minecraft {
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
 
-            // For Serene Seasons as it uses Mixins.
-            properties 'mixin.env.disableRefMap' : 'true'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
             mods {
                 dttraverse {
@@ -70,8 +64,26 @@ minecraft {
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
 
-            // For Serene Seasons as it uses Mixins
-            properties 'mixin.env.disableRefMap' : 'true'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
+
+            mods {
+                dttraverse {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        data {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
+
+            args '--mod', 'dttraverse', '--all', '--output', file('src/generated/resources/')
 
             mods {
                 dttraverse {
@@ -82,23 +94,27 @@ minecraft {
     }
 }
 
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
+}
+
 dependencies {
-    minecraft "net.minecraftforge:forge:${config.mc_version}-${config.forge_version}"
+    minecraft "net.minecraftforge:forge:${mcVersion}-${forgeVersion}"
 
     // Compile Hwyla API, but don't include in runtime.
-    compileOnly fg.deobf("mcp.mobius.waila:Hwyla:${config.hwyla_version}:api")
+    compileOnly fg.deobf("mcp.mobius.waila:Hwyla:${hwylaVersion}:api")
     // At runtime, use the full Hwyla mod.
-    runtimeOnly fg.deobf("mcp.mobius.waila:Hwyla:${config.hwyla_version}")
+    runtimeOnly fg.deobf("mcp.mobius.waila:Hwyla:${hwylaVersion}")
 
     // Compile JEI API, but don't include in runtime.
-    compileOnly fg.deobf("mezz.jei:jei-${config.mc_version}:${config.jei_version}:api")
+    compileOnly fg.deobf("mezz.jei:jei-${mcVersion}:${jeiVersion}:api")
     // At runtime, use the full JEI mod.
-    runtimeOnly fg.deobf("mezz.jei:jei-${config.mc_version}:${config.jei_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-${mcVersion}:${jeiVersion}")
 
     // Compile Dynamic Trees, of course.
-    implementation fg.deobf(group: 'com.ferreusveritas.dynamictrees', name: "DynamicTrees-${config.mc_version}", version: config.dynamic_trees_version)
+    implementation fg.deobf(group: 'com.ferreusveritas.dynamictrees', name: "DynamicTrees-${mcVersion}", version: dynamicTreesVersion)
     // Also compile Dynamic Trees Plus for cacti.
-    runtimeOnly fg.deobf("com.ferreusveritas.dynamictreesplus:DynamicTreesPlus-${config.mc_version}:${config.dynamic_trees_plus_version}")
+    runtimeOnly fg.deobf("com.ferreusveritas.dynamictreesplus:DynamicTreesPlus-${mcVersion}:${dynamicTreesPlusVersion}")
 
     // Compile Traverse
     implementation fg.deobf(group: 'curse.maven', name: 'Traverse-267769', version: '3157857')
@@ -111,7 +127,7 @@ jar {
                 "Specification-Vendor": "Harley O'Connor",
                 "Specification-Version": "1",
                 "Implementation-Title": project.name,
-                "Implementation-Version": version,
+                "Implementation-Version": "${mcVersion}-${modVersion}",
                 "Implementation-Vendor" : "Harley O'Connor",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
@@ -129,44 +145,32 @@ java {
     withSourcesJar()
 }
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            setArtifactId("${config.mod_name}-${config.mc_version}")
-            setVersion(config.mod_version)
+curseforge {
+    if (project.hasProperty("curseApiKey") && project.hasProperty("curseFileType")) {
+        apiKey = property("curseApiKey")
 
-            from components.java
+        project {
+            id = '407056'
 
-            pom {
-                url = "https://github.com/Harleyoc1/${config.mod_name}"
-                licenses {
-                    license {
-                        name = 'MIT'
-                        url = 'https://mit-license.org'
-                    }
-                }
-                scm {
-                    connection = "scm:git:git://github.com/Harleyoc1/${config.mod_name}.git"
-                    developerConnection = "scm:git:ssh://github.com/Harleyoc1/${config.mod_name}.git"
-                    url = "https://github.com/Harleyoc1/${config.mod_name}"
-                }
-            }
+            addGameVersion '1.16.4'
+            addGameVersion mcVersion
 
-            pom.withXml { xmlProvider ->
-                final Element element = xmlProvider.asElement();
+            changelog = file('build/changelog.md')
+            changelogType = 'markdown'
+            releaseType = property("curseFileType")
 
-                // Clear dependencies.
-                element.getChildNodes().each { node ->
-                    if (node.getNodeName() == "dependencies")
-                        element.removeChild(node)
+            addArtifact sourcesJar
+
+            mainArtifact(jar) {
+                relations {
+                    requiredDependency 'dynamictrees'
+                    optionalDependency 'dynamictreesplus'
+                    requiredDependency 'traverse-reforged'
                 }
             }
         }
-    }
-    repositories {
-        maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
-        }
+    } else {
+        project.logger.log(LogLevel.WARN, "API Key and file type for CurseForge not detected; uploading will be disabled.")
     }
 }
 
