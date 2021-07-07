@@ -1,6 +1,7 @@
 {
   "homepage": "https://www.curseforge.com/minecraft/mc-mods/dynamic-trees-traverse",
   "1.16.5": {
+    "1.16.5-2.2.1": "Changes:\n- Added block and item tags. \n- Credit Odorousrex for making the original add-on for 1.12.",
     "1.16.5-2.2.0": "Initial 1.16.5 release."
   },
   "promos": {
