@@ -8,7 +8,7 @@ be used if you are generating new worlds or simply don't care that red autumnal 
 be replaced with regular oaks. 
 
 ## Installation
-- Extract [Red Autumnal Oak Fix](./Red Autumnal Oak Fix.zip). 
+- Extract <a href="./Red Autumnal Oak Fix.zip">Red Autumnal Oak Fix</a>. 
 - Place enclosed `trees` folder in your root Minecraft directory. Merge with the existing folder if one already exists. 
 - Place enclosed `Red Autumnal Oak Fix` folder in the `resourcepacks` directory in your root Minecraft folder. 
 - Restart the game (`/reload` may also work but I haven't tested it).
