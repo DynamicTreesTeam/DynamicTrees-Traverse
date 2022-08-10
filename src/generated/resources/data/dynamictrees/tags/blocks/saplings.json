@@ -2,9 +2,9 @@
   "replace": false,
   "values": [
     "dttraverse:orange_autumnal_oak_sapling",
-    "dttraverse:brown_autumnal_oak_sapling",
-    "dttraverse:red_autumnal_oak_sapling",
     "dttraverse:fir_sapling",
-    "dttraverse:yellow_autumnal_birch_sapling"
+    "dttraverse:yellow_autumnal_birch_sapling",
+    "dttraverse:red_autumnal_oak_sapling",
+    "dttraverse:brown_autumnal_oak_sapling"
   ]
 }
