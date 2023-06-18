@@ -2,7 +2,7 @@
   "parent": "dynamictrees:block/smartmodel/sapling",
   "textures": {
     "particle": "traverse:block/red_autumnal_leaves",
-    "log": "block/oak_log",
+    "log": "block/dark_oak_log",
     "leaves": "traverse:block/red_autumnal_leaves"
   }
 }

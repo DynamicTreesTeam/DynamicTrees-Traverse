@@ -1,0 +1,19 @@
+[
+  {
+    "__comment": "Cancel standard tree features from the overworld.",
+    "select": { "name": "traverse:.*" },
+    "cancellers": {
+      "type": "tree",
+      "namespaces": ["minecraft", "traverse"]
+    }
+  },
+  {
+    "_comment": "If DT+ is loaded, remove default cacti from desert shrubland.",
+    "select" : { "name": "traverse:desert_shrubland" },
+    "only_if_loaded": "dynamictreesplus",
+    "cancellers": {
+      "type": "dynamictreesplus:cactus",
+      "namespace": "minecraft"
+    }
+  }
+]

@@ -1,6 +1,6 @@
 license="MIT"
 modLoader="javafml"
-loaderVersion="[36,37)"
+loaderVersion="[40,41)"
 issueTrackerURL="https://github.com/Harleyoc1/DynamicTreesTraverse/issues"
 
 [[mods]]
@@ -13,33 +13,33 @@ logoFile="dtt-logo.png"
 credits="Odorousrex for making the original traverse add-on for 1.12.2."
 authors="Harley O'Connor"
 description='''
-Adds Dynamic Trees compatibility to Nature's Aura.
+Adds Dynamic Trees compatibility for Traverse.
 '''
 
 [[dependencies.dttraverse]]
     modId="forge"
     mandatory=true
-    versionRange="[36,37)"
+    versionRange="[40,41)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.dttraverse]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.5,1.17)"
+    versionRange="[1.18.2,1.19)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.dttraverse]]
     modId="dynamictrees"
     mandatory=true
-    versionRange="[0.10.0-Beta34,)"
+    versionRange="[1.0.3,)"
     ordering="AFTER"
     side="BOTH"
 
 [[dependencies.dttraverse]]
     modId="traverse"
     mandatory=true
-    versionRange="[0.4.3.8,)"
+    versionRange="[5.1.5,)"
     ordering="AFTER"
     side="BOTH"

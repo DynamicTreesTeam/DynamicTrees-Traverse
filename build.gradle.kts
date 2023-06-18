@@ -8,9 +8,12 @@ import java.time.format.DateTimeFormatter
 
 fun property(key: String) = project.findProperty(key).toString()
 
+apply(from = "https://gist.githubusercontent.com/Harleyoc1/4d23d4e991e868d98d548ac55832381e/raw/applesiliconfg.gradle")
+
 plugins {
     id("java")
     id("net.minecraftforge.gradle")
+    id("org.parchmentmc.librarian.forgegradle")
     id("idea")
     id("maven-publish")
     id("com.matthewprenger.cursegradle") version "1.4.0"
@@ -25,7 +28,6 @@ repositories {
     }
     maven("https://harleyoconnor.com/maven")
     maven("https://squiddev.cc/maven/")
-    maven("https://maxanier.de/maven2")
 }
 
 val modName = property("modName")
@@ -37,7 +39,7 @@ version = "$mcVersion-$modVersion"
 group = property("group")
 
 minecraft {
-    mappings("snapshot", "${property("mappingsVersion")}-$mcVersion")
+    mappings("parchment", "${property("mappingsVersion")}-$mcVersion")
 
     runs {
         create("client") {
@@ -80,15 +82,15 @@ dependencies {
     minecraft("net.minecraftforge:forge:$mcVersion-${property("forgeVersion")}")
 
     implementation(fg.deobf("com.ferreusveritas.dynamictrees:DynamicTrees-$mcVersion:${property("dynamicTreesVersion")}"))
-    implementation(fg.deobf("curse.maven:Traverse-267769:3157857"))
+    implementation(fg.deobf("com.github.glitchfiend:TerraBlender-forge:$mcVersion-${property("terraBlenderVersion")}"))
+    implementation(fg.deobf("curse.maven:Traverse-267769:4577411"))
 
     runtimeOnly(fg.deobf("com.ferreusveritas.dynamictreesplus:DynamicTreesPlus-$mcVersion:${property("dynamicTreesPlusVersion")}"))
-    runtimeOnly(fg.deobf("curse.maven:hwyla-253449:3033593"))
+    runtimeOnly(fg.deobf("curse.maven:jade-324717:4160646"))
     runtimeOnly(fg.deobf("mezz.jei:jei-$mcVersion:${property("jeiVersion")}"))
     runtimeOnly(fg.deobf("org.squiddev:cc-tweaked-$mcVersion:${property("ccVersion")}"))
-    runtimeOnly(fg.deobf("com.harleyoconnor.suggestionproviderfix:SuggestionProviderFix:$mcVersion-${property("suggestionProviderFixVersion")}"))
-
-    minecraft("net.minecraftforge:forge:${mcVersion}-${property("forgeVersion")}")
+    runtimeOnly(fg.deobf("curse.maven:ShutUpExperimentalSettings-407174:3759881"))
+    runtimeOnly(fg.deobf("com.harleyoconnor.suggestionproviderfix:SuggestionProviderFix-1.18.1:${property("suggestionProviderFixVersion")}"))
 }
 
 tasks.jar {
@@ -110,7 +112,7 @@ java {
     withSourcesJar()
 
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(8))
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 
@@ -134,7 +136,6 @@ curseforge {
                     requiredDependency("dynamictrees")
                     requiredDependency("traverse-reforged")
                     optionalDependency("dynamictreesplus")
-                    optionalDependency("chunk-saving-fix")
                 }
             }
         }
