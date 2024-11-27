@@ -1,6 +1,6 @@
 license="MIT"
 modLoader="javafml"
-loaderVersion="[40,41)"
+loaderVersion="[43,)"
 issueTrackerURL="https://github.com/Harleyoc1/DynamicTreesTraverse/issues"
 
 [[mods]]
@@ -19,27 +19,27 @@ Adds Dynamic Trees compatibility for Traverse.
 [[dependencies.dttraverse]]
     modId="forge"
     mandatory=true
-    versionRange="[40,41)"
+    versionRange="[43,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.dttraverse]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18.2,1.19)"
+    versionRange="[1.19.2]"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.dttraverse]]
     modId="dynamictrees"
     mandatory=true
-    versionRange="[1.0.3,)"
+    versionRange="[1.2.2,)"
     ordering="AFTER"
     side="BOTH"
 
 [[dependencies.dttraverse]]
     modId="traverse"
     mandatory=true
-    versionRange="[5.1.5,)"
+    versionRange="[6.2.4.1,)"
     ordering="AFTER"
     side="BOTH"
