@@ -1,6 +1,6 @@
 {
     "parent": "dynamictrees:item/standard_seed",
     "textures": {
-        "layer0": "dttraverse:items/brown_autumnal_oak_seed"
+        "layer0": "dttraverse:item/brown_autumnal_oak_seed"
     }
 }

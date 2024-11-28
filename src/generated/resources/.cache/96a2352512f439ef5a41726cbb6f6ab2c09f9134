@@ -1,0 +1,5 @@
+// 1.20.1	2024-11-28T18:36:14.865184721	dttraverse DT Block Tags
+e6130e6863eb9c46cb77e506b7bd9ccba034f6ea data/dynamictrees/tags/blocks/branches_that_burn.json
+38a67939a2db99f178464750eb5b0c8cd20adee2 data/dynamictrees/tags/blocks/leaves.json
+f1a20e9536e376894ac0c48ceaf6dbb474288f99 data/dynamictrees/tags/blocks/saplings.json
+52ccd9503a3388d93bccee3e7615bb72ad343170 data/dynamictrees/tags/blocks/stripped_branches_that_burn.json

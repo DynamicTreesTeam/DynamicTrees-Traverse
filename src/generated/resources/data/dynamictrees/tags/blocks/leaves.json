@@ -1,10 +1,9 @@
 {
-  "replace": false,
   "values": [
-    "dttraverse:yellow_autumnal_leaves",
-    "dttraverse:fir_leaves",
     "dttraverse:brown_autumnal_leaves",
+    "dttraverse:fir_leaves",
     "dttraverse:orange_autumnal_leaves",
-    "dttraverse:red_autumnal_leaves"
+    "dttraverse:red_autumnal_leaves",
+    "dttraverse:yellow_autumnal_leaves"
   ]
 }

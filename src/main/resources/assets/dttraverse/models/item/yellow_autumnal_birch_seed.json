@@ -1,6 +1,6 @@
 {
     "parent": "dynamictrees:item/standard_seed",
     "textures": {
-        "layer0": "dttraverse:items/yellow_autumnal_birch_seed"
+        "layer0": "dttraverse:item/yellow_autumnal_birch_seed"
     }
 }
