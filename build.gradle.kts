@@ -139,7 +139,7 @@ curseforge {
             mainArtifact(tasks.findByName("jar")) {
                 relations {
                     requiredDependency("dynamictrees")
-                    requiredDependency("traverse-reforged")
+                    requiredDependency("traverse")
                     optionalDependency("dynamictreesplus")
                 }
             }
