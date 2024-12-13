@@ -28,6 +28,9 @@ repositories {
     }
     maven("https://harleyoconnor.com/maven")
     maven("https://squiddev.cc/maven/")
+    flatDir {
+        dir("libs")
+    }
 }
 
 val modName = property("modName")
@@ -84,8 +87,14 @@ dependencies {
     implementation(fg.deobf("com.ferreusveritas.dynamictrees:DynamicTrees-$mcVersion:${property("dynamicTreesVersion")}"))
     implementation(fg.deobf("curse.maven:traverse-reforged-267769:5714827"))
 
+    implementation(fg.deobf("libs:terraform-config-api:v1-4.2.1"))
+    implementation(fg.deobf("libs:terraform-surfaces-api:v1-4.2.1"))
+    implementation(fg.deobf("libs:terraform-tree-api:v1-4.2.1"))
+    implementation(fg.deobf("libs:terraform-utils:v1-4.2.1"))
+    implementation(fg.deobf("libs:terraform-wood-api:v1-4.2.1"))
+
     runtimeOnly(fg.deobf("com.ferreusveritas.dynamictreesplus:DynamicTreesPlus-$mcVersion:${property("dynamicTreesPlusVersion")}"))
-    runtimeOnly(fg.deobf("curse.maven:terrablender-563928:4618490"))
+    runtimeOnly(fg.deobf("curse.maven:terrablender-563928:4567901"))
     runtimeOnly(fg.deobf("curse.maven:jade-324717:4433884"))
     runtimeOnly(fg.deobf("curse.maven:jei-238222:4615177"))
     runtimeOnly(fg.deobf("org.squiddev:cc-tweaked-$mcVersion:${property("ccVersion")}"))
