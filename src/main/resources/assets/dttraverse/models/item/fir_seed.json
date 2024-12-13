@@ -1,6 +1,6 @@
 {
 	"parent": "dynamictrees:item/standard_seed",
 	"textures": {
-		"layer0": "dttraverse:items/fir_seed"
+		"layer0": "dttraverse:item/fir_seed"
 	}
 }

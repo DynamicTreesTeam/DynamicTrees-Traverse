@@ -18,7 +18,7 @@
           "oak" : 1
         }
       },
-      "density" : [ 0.9 ],
+      "density" : 0.9 ,
       "chance": 1.0
     }
   },
@@ -28,19 +28,18 @@
       "species" : {
         "random" : {
           "oak" : 14,
-          "dttraverse:oak_shrub": 1
+          "oak_undergrowth": 5
         }
       },
-      "species": "oak",
-      "density" : [ 0.7 ],
+      "density" : 0.7 ,
       "chance": 0.85
     }
   },
   {
     "select" : { "name": "traverse:desert_shrubland" },
     "apply": {
-      "species": "dttraverse:oak_shrub",
-      "density" : [ 0.8 ],
+      "species": "oak_undergrowth",
+      "density" : 0.8 ,
       "chance": 0.6
     }
   },
@@ -63,7 +62,7 @@
     "select" : { "name": "traverse:lush_swamp" },
     "apply": {
       "species" : "swamp_oak",
-      "density" : [ 0.6 ],
+      "density" : 0.6 ,
       "chance": 1.0
     }
   },
@@ -71,7 +70,7 @@
     "select" : { "name": "traverse:flatlands" },
     "apply": {
       "species" : "oak",
-      "density" : [ 0.01 ],
+      "density" : 0.01 ,
       "chance": 0.1
     }
   }

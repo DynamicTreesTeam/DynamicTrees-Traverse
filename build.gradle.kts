@@ -28,6 +28,7 @@ repositories {
     }
     maven("https://harleyoconnor.com/maven")
     maven("https://squiddev.cc/maven/")
+    maven("https://maven.su5ed.dev/releases")
 }
 
 val modName = property("modName")
@@ -80,17 +81,19 @@ sourceSets.main.get().resources {
 
 dependencies {
     minecraft("net.minecraftforge:forge:$mcVersion-${property("forgeVersion")}")
+    minecraftLibrary(fg.deobf("dev.su5ed.sinytra:Connector:1.0.0-beta.43+1.20.1"))
+
+    //onlyMainRuntimeOnly(fg.deobf("curse.maven:connector-extras-913445:5287497"))
+    runtimeOnly(fg.deobf("curse.maven:forgified-fabric-api-889079:5387432"))
 
     implementation(fg.deobf("com.ferreusveritas.dynamictrees:DynamicTrees-$mcVersion:${property("dynamicTreesVersion")}"))
-    implementation(fg.deobf("com.github.glitchfiend:TerraBlender-forge:$mcVersion-${property("terraBlenderVersion")}"))
-    implementation(fg.deobf("curse.maven:Traverse-267769:4577411"))
+    implementation(fg.deobf("curse.maven:traverse-308777:5555393"))
 
     runtimeOnly(fg.deobf("com.ferreusveritas.dynamictreesplus:DynamicTreesPlus-$mcVersion:${property("dynamicTreesPlusVersion")}"))
-    runtimeOnly(fg.deobf("curse.maven:jade-324717:4160646"))
-    runtimeOnly(fg.deobf("mezz.jei:jei-$mcVersion:${property("jeiVersion")}"))
-    runtimeOnly(fg.deobf("org.squiddev:cc-tweaked-$mcVersion:${property("ccVersion")}"))
-    runtimeOnly(fg.deobf("curse.maven:ShutUpExperimentalSettings-407174:3759881"))
-    runtimeOnly(fg.deobf("com.harleyoconnor.suggestionproviderfix:SuggestionProviderFix-1.18.1:${property("suggestionProviderFixVersion")}"))
+    runtimeOnly(fg.deobf("curse.maven:jade-324717:5072729"))
+    runtimeOnly(fg.deobf("curse.maven:jei-238222:5101366"))
+    runtimeOnly(fg.deobf("curse.maven:cc-tweaked-282001:5118388"))
+    runtimeOnly(fg.deobf("curse.maven:suggestion-provider-fix-469647:4591193"))
 }
 
 tasks.jar {
@@ -107,6 +110,8 @@ tasks.jar {
     archiveBaseName.set(modName)
     finalizedBy("reobfJar")
 }
+
+
 
 java {
     withSourcesJar()
@@ -134,7 +139,7 @@ curseforge {
             mainArtifact(tasks.findByName("jar")) {
                 relations {
                     requiredDependency("dynamictrees")
-                    requiredDependency("traverse-reforged")
+                    requiredDependency("traverse")
                     optionalDependency("dynamictreesplus")
                 }
             }
