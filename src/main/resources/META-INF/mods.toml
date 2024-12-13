@@ -10,10 +10,10 @@ displayName="Dynamic Trees for Traverse"
 updateJSONURL="https://github.com/DynamicTreesTeam/DynamicTreesVersionInfo/blob/master/Add-ons/Traverse.json?raw=true"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/dynamic-trees-traverse"
 logoFile="dtt-logo.png"
-credits="Odorousrex for making the original traverse add-on for 1.12.2."
-authors="Harley O'Connor"
+credits="Odorousrex for the original traverse add-on on 1.12.2. GroupiX05 for the 1.20.1 port."
+authors="Odorousrex, Harley O'Connor"
 description='''
-Adds Dynamic Trees compatibility for Traverse.
+Adds Dynamic Trees compatibility for Traverse
 '''
 
 [[dependencies.dttraverse]]

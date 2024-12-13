@@ -55,7 +55,7 @@ minecraft {
             if (project.hasProperty("mcAccessToken")) {
                 args("--accessToken", property("mcAccessToken"))
             }
-        }
+            }
 
         create("server") {
             applyDefaultConfiguration("run-server")
@@ -81,15 +81,16 @@ sourceSets.main.get().resources {
 
 dependencies {
     minecraft("net.minecraftforge:forge:$mcVersion-${property("forgeVersion")}")
-    minecraftLibrary(fg.deobf("dev.su5ed.sinytra:Connector:1.0.0-beta.43+1.20.1"))
 
+    implementation(fg.deobf("com.ferreusveritas.dynamictrees:DynamicTrees-$mcVersion:${property("dynamicTreesVersion")}"))
+    runtimeOnly(fg.deobf("com.ferreusveritas.dynamictreesplus:DynamicTreesPlus-$mcVersion:${property("dynamicTreesPlusVersion")}"))
+
+    implementation(fg.deobf("curse.maven:traverse-308777:5555393"))
+
+    minecraftLibrary(fg.deobf("dev.su5ed.sinytra:Connector:1.0.0-beta.43+1.20.1"))
     //onlyMainRuntimeOnly(fg.deobf("curse.maven:connector-extras-913445:5287497"))
     runtimeOnly(fg.deobf("curse.maven:forgified-fabric-api-889079:5387432"))
 
-    implementation(fg.deobf("com.ferreusveritas.dynamictrees:DynamicTrees-$mcVersion:${property("dynamicTreesVersion")}"))
-    implementation(fg.deobf("curse.maven:traverse-308777:5555393"))
-
-    runtimeOnly(fg.deobf("com.ferreusveritas.dynamictreesplus:DynamicTreesPlus-$mcVersion:${property("dynamicTreesPlusVersion")}"))
     runtimeOnly(fg.deobf("curse.maven:jade-324717:5072729"))
     runtimeOnly(fg.deobf("curse.maven:jei-238222:5101366"))
     runtimeOnly(fg.deobf("curse.maven:cc-tweaked-282001:5118388"))
@@ -172,6 +173,8 @@ fun RunConfig.applyDefaultConfiguration(runDirectory: String = "run") {
 
     property("mixin.env.remapRefMap", "true")
     property("mixin.env.refMapRemappingFile", "${buildDir}/createSrgToMcp/output.srg")
+
+    property("connector.clean.path", "${System.getenv("GRADLE_USER_HOME")}/caches/forge_gradle/mcp_repo/net/minecraft/joined/${property("FMLandMCPVersion")}/joined-${property("FMLandMCPVersion")}-srg.jar")
 
     mods {
         create(modId) {
